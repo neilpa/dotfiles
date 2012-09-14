@@ -1,0 +1,19 @@
+[user]
+	name = Neil Pankey
+	email = neilpa@foobar
+[diff]
+	tool = odd
+[difftool]
+	prompt = false
+[difftool "odd"]
+	cmd = "odd.exe $LOCAL $REMOTE"
+[alias]
+	ci = commit
+	st = status
+	wd = difftool --dir-diff
+[color]
+	diff = auto
+	status = auto
+	ui = true
+[core]
+	excludesfile = ~/.gitignore
