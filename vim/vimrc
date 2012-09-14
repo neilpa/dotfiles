@@ -2,12 +2,13 @@
 " General
 "==========================================================================
 
-"Pathogen has to be first to fixup the runtime path
-call pathogen#infect()
-"call pathogen#helptags()
-
 "Obviously want all possible Vim features
 set nocompatible
+
+"Use Pathogen to load all bundles
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
+"call pathogen#helptags()
 
 "Have Vim rememember lots of commands
 set history=75
