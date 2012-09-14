@@ -1,3 +1,6 @@
 [submodule "vim-pathogen"]
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim-colors-solarized"]
+	path = vim/bundle/solarized
+	url = https://github.com/neilpa/vim-colors-solarized.git
