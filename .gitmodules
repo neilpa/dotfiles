@@ -4,3 +4,6 @@
 [submodule "vim-colors-solarized"]
 	path = vim/bundle/solarized
 	url = https://github.com/neilpa/vim-colors-solarized.git
+[submodule "vim-buffergator"]
+	path = vim/bundle/buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
