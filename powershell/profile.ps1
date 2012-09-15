@@ -1,8 +1,8 @@
 # profile.ps1 - main powershell profile script
 # Applies to all hosts, so only put things here that are global
 
-# To override some existing aliases with alias functions we have to remove them
-function Remove-Alias($alias) { Remove-Item alias:$alias -Force -ErrorAction SilentlyContinue }
+# Import the Pscx version that matches the current host
+Import-Module Pscx -Version $Host.Version
 
 # Function for reloading your profile after edits w/out restarting the shell
 # Simply dot source the function from, eg '. Reload-Profile'. These are stored
@@ -79,6 +79,9 @@ function Test-Admin {
     $user = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
     return $user.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
+
+# To override some existing aliases with alias functions we have to remove them
+function Remove-Alias($alias) { Remove-Item alias:$alias -Force -ErrorAction SilentlyContinue }
 
 # Navigation aliases
 Set-Alias p Pop-Location
