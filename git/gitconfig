@@ -15,5 +15,8 @@
 	diff = auto
 	status = auto
 	ui = true
+[color "diff"]
+	old = red
+	new = yellow
 [core]
 	excludesfile = ~/.gitignore
