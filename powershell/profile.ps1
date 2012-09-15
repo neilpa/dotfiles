@@ -24,7 +24,21 @@ function profile { Edit-File $Profile.CurrentUserAllHosts }
 
 # By default use a single gvim instance per powershell instance
 $Env:gvimsvr = "GVIM:$pid"
-function Edit-File { gvim.exe --servername $Env:gvimsvr --remote-silent $args }
+function Edit-File {
+    $svr = $Env:gvimsvr
+    if (vim.exe --serverlist | Select-String $svr) {
+        if ($args) {
+            # Add the specified files to the existing instance
+            gvim.exe --servername $svr --remote-silent $args
+        } else {
+            # No new files, give focus to existing instance
+            vim.exe -c ":echo remote_foreground('$svr')" -c ":q"
+        }
+    } else {
+        # Start a new instance
+        gvim.exe --servername $svr $args
+    }
+}
 Set-alias edit Edit-File
 Set-alias v Edit-File
 
