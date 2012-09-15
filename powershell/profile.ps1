@@ -56,7 +56,7 @@ Set-alias v Edit-File
 Set-Alias ibf Invoke-BatchFile
 
 # Often need to check for admin privilege
-function Test-Admin { Test-UserGroupMemberShip Administrators }
+function Test-Admin { Test-UserGroupMembership Administrators }
 
 # To override some existing aliases with alias functions we have to remove them
 function Remove-Alias($alias) { Remove-Item alias:$alias -Force -ErrorAction SilentlyContinue }

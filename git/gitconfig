@@ -14,9 +14,14 @@
 [color]
 	diff = auto
 	status = auto
-	ui = true
 [color "diff"]
-	old = red
-	new = yellow
+	meta = white
+	frag = cyan bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green bold
+	changed = red
+	untracked = cyan bold
 [core]
 	excludesfile = ~/.gitignore
