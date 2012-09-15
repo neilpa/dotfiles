@@ -2,7 +2,7 @@
 # Applies to all hosts, so only put things here that are global
 
 # Import the Pscx version that matches the current host
-Import-Module Pscx -Version $Host.Version
+Import-Module Pscx -Version $Host.Version -ArgumentList "$(Split-Path $profile -parent)\Pscx.UserPreferences.ps1"
 
 # Function for reloading your profile after edits w/out restarting the shell
 # Simply dot source the function from, eg '. Reload-Profile'. These are stored
@@ -32,9 +32,8 @@ Set-Alias ffp Find-FilePath
 function Find-String([string]$pat, [string]$inc="*") { Find-File($inc) | Select-String -Pattern $pat }
 Set-Alias f Find-String
 
-# Vim Helpers
-
-# By default use a single gvim instance per powershell instance
+# By default use a single gvim instance per powershell instance. This overrides the
+# Edit-File function provided by Pscx
 $Env:gvimsvr = "GVIM:$pid"
 function Edit-File {
     $svr = $Env:gvimsvr
@@ -54,24 +53,6 @@ function Edit-File {
 Set-alias edit Edit-File
 Set-alias v Edit-File
 
-# Function to invoke a batch script that inherits any environment changes it made
-# http://www.leeholmes.com/blog/2006/05/11/nothing-solves-everything-%E2%80%93-powershell-and-other-technologies
-function Invoke-BatchFile {
-    param([string]$script, [string]$params)
-    $temp = [IO.Path]::GetTempFileName()
-
-    # Store the output of cmd.exe and the environment table after the batch file completes
-    cmd.exe /c " `"$script`" $params && set > `"$temp`" "
-
-    # For each environment variable in the temp  file, add it to our local environment
-    Get-Content $temp | Foreach-Object {
-        if ($_ -match "^(.*?)=(.*)$") {
-            Set-Content "Env:\$($matches[1])" $matches[2]
-        }
-    }
-
-    Remove-Item $temp
-}
 Set-Alias ibf Invoke-BatchFile
 
 # Often need to check for admin privilege
