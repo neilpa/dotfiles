@@ -90,3 +90,9 @@ function .. { Set-Location .. }
 function ... { ..;.. }
 function .... { ...;.. }
 
+function code { Push-Location ~\code\$args }
+function dot { code dotfiles\$args }
+
+# Typo aliases
+Set-Alias dri dir
+
