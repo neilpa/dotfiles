@@ -70,7 +70,7 @@ function Test-Admin {
 
 # Navigation aliases
 Set-Alias p Pop-Location
-function ~ { Push-Location ~ }
+function ~ { Push-Location (Get-PSProvider FileSystem).Home }
 function .. { Set-Location .. }
 function ... { ..;.. }
 function .... { ...;.. }
