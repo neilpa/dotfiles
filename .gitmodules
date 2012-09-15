@@ -7,3 +7,6 @@
 [submodule "vim-buffergator"]
 	path = vim/bundle/buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule "vim-ps1"]
+	path = vim/bundle/ps1
+	url = https://github.com/PProvost/vim-ps1.git
