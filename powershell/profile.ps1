@@ -56,10 +56,7 @@ Set-alias v Edit-File
 Set-Alias ibf Invoke-BatchFile
 
 # Often need to check for admin privilege
-function Test-Admin {
-    $user = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    return $user.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-}
+function Test-Admin { Test-UserGroupMemberShip Administrators }
 
 # To override some existing aliases with alias functions we have to remove them
 function Remove-Alias($alias) { Remove-Item alias:$alias -Force -ErrorAction SilentlyContinue }
