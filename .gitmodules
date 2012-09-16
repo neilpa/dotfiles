@@ -10,3 +10,6 @@
 [submodule "vim-ps1"]
 	path = vim/bundle/ps1
 	url = https://github.com/PProvost/vim-ps1.git
+[submodule "zsh/prezto"]
+	path = zsh/prezto
+	url = https://github.com/neilpa/prezto.git
