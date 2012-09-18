@@ -4,6 +4,7 @@ Set-StrictMode -Version Latest
 # Some commands (git) require being in the right directory
 $dotfiles = Split-Path $MyInvocation.MyCommand.Path -Parent
 Push-Location $dotfiles
+echo $dotfiles
 
 Write-Host "Importing Powershell Community Extensions"
 Import-Module $dotfiles\powershell\modules\pscx -ArgumentList $dotfiles\powershell\Pscx.UserPreferences.ps1
@@ -13,6 +14,7 @@ if (-not $admin) { Write-Warning "Not admin, symlinking and other operations may
 
 Write-Host "Updating git submodules"
 git submodule update --init --recursive
+
 
 function Link-File($link, $target) {
     if (Test-Path $link) {
@@ -24,6 +26,9 @@ function Link-File($link, $target) {
         return
     }
     New-Symlink $link $target >$null
+    if ((Get-ReparsePoint $link) -eq $null) {
+        Write-Warning "Failed to link $link to $target"
+    }
 }
 
 function Link-Directory($link, $target) {
@@ -32,7 +37,12 @@ function Link-Directory($link, $target) {
 }
 
 Write-Host "Creating powershell symlinks"
-Link-Directory ~\Documents\WindowsPowerShell $dotfiles\powershell
+New-Item ~\Documents\WindowsPowerShell\Modules -ItemType Directory -ErrorAction SilentlyContinue >$null
+Link-File ~\Documents\WindowsPowerShell\profile.ps1 $dotfiles\powershell\profile.ps1
+Link-File ~\Documents\WindowsPowerShell\Pscx.UserPreferences.ps1 $dotfiles\powershell\Pscx.UserPreferences.ps1
+Get-ChildItem $dotfiles\powershell\modules | ? { $_.PSIsContainer } | % {
+    Link-Directory ~\Documents\WindowsPowerShell\Modules\$($_.Name) $_
+}
 
 Write-Host "Creating vim symlinks"
 Link-Directory ~\vimfiles $dotfiles\vim
@@ -42,6 +52,14 @@ Link-File ~\_gvimrc $dotfiles\vim\gvimrc
 Write-Host "Creating git symlinks"
 Link-File ~\.gitconfig $dotfiles\git\gitconfig
 Link-File ~\.gitignore $dotfiles\git\gitignore
+
+# TODO Install the solarized colorscheme for the prompt
+
+# TODO Get fix this
+# Write-Host "Fixing powershell shortcuts"
+# . ($dotfiles + "\powershell\Search-StartMenu.ps1")
+# . ($dotfiles + "\powershell\Refresh-Shortcut.ps1")
+# Search-StartMenu powershell | Refresh-Shortcut
 
 Pop-Location
 
