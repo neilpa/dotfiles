@@ -79,8 +79,8 @@ endif
 set list
 
 "Turn off line wrapping
-set nowrap
-set listchars+=extends:>,precedes:<
+"set nowrap
+"set listchars+=extends:>,precedes:<
 
 "Searching tweaks
 set ignorecase      "case insensetive searching

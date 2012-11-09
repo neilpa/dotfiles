@@ -20,17 +20,19 @@ function Reload-Profile {
 Set-Alias reload Reload-Profile
 function profile { Edit-File $Profile.CurrentUserAllHosts }
 
-# Effectively dir /s <inc>
-function Find-File([string]$inc) { Get-ChildItem -Recurse -Include $inc }
+function Find-File([string[]]$inc) { Get-ChildItem -Recurse -Include $inc }
 Set-Alias ff Find-File
+Set-Alias dirs Find-File
 
-# Effectively dir /s /b <inc>
-function Find-FilePath([string]$inc) { Find-File $inc | Select-Object -ExpandProperty FullName }
+function Find-FilePath([string[]]$inc) { Find-File $inc | Select-Object -ExpandProperty FullName }
 Set-Alias ffp Find-FilePath
+Set-Alias dirsb Find-FilePath
 
-# Effectively findstr /si <pat> <inc>
-function Find-String([string]$pat, [string]$inc="*") { Find-File($inc) | Select-String -Pattern $pat }
+function Find-String([string]$pat, [string[]]$inc="*") { Find-File($inc) | Select-String -Pattern $pat }
 Set-Alias f Find-String
+
+function Get-Function($fn) { Get-Content Function:\$fn }
+Set-Alias gf Get-Function
 
 # By default use a single gvim instance per powershell instance. This overrides the
 # Edit-File function provided by Pscx

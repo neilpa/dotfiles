@@ -4,10 +4,13 @@ Set-StrictMode -Version Latest
 # Some commands (git) require being in the right directory
 $dotfiles = Split-Path $MyInvocation.MyCommand.Path -Parent
 Push-Location $dotfiles
-echo $dotfiles
 
 Write-Host "Importing Powershell Community Extensions"
-Import-Module $dotfiles\powershell\modules\pscx -ArgumentList $dotfiles\powershell\Pscx.UserPreferences.ps1
+try {
+    Import-Module Pscx -Version $Host.Version -ArgumentList $dotfiles\powershell\Pscx.UserPreferences.ps1
+} catch [exception] {
+    Import-Module $dotfiles\powershell\modules\pscx -ArgumentList $dotfiles\powershell\Pscx.UserPreferences.ps1
+}
 
 $admin = Test-UserGroupMembership Administrators
 if (-not $admin) { Write-Warning "Not admin, symlinking and other operations may fail" }
