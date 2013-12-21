@@ -1,0 +1,37 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = Neil Pankey
+	email = neil@wire.im
+
+[pull]
+	rebase = true
+[branch]
+	autosetuprebase = always
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[push]
+	default = simple
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status --short --branch
+	stat = status
+	dt = difftool
+	dtc = difftool --cached
+	lg = log --all --graph --format=format:'%C(bold blue)%h %Creset%an %C(bold green)(%ar) %C(yellow)%d%n        %Creset%s%n' --abbrev-commit
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short

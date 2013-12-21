@@ -1,2 +1,1 @@
-config-git
-==========
+My git config
