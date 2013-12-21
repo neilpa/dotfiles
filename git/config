@@ -1,9 +1,12 @@
 [credential]
 	helper = osxkeychain
+
 [user]
 	name = Neil Pankey
 	email = neil@wire.im
 
+[push]
+	default = simple
 [pull]
 	rebase = true
 [branch]
@@ -11,10 +14,12 @@
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
+[difftool "odd"]
+        cmd = "odd.exe $LOCAL $REMOTE"
 [difftool]
 	prompt = false
+[diff]
+	tool = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
@@ -23,8 +28,6 @@
 	prompt = false
 [merge]
 	tool = Kaleidoscope
-[push]
-	default = simple
 
 [alias]
 	co = checkout
