@@ -1,8 +1,23 @@
-#Shell files
+# Windows
+
+# Shell files
 [Tt]humbs.db
 desktop.ini
-.DS_Store
 
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
 # XCode junk
 
 # personal settings
@@ -18,3 +33,4 @@ xcuserdata
 
 # just treat the pbxproj file as binary: don't show the diff, don't try to merge
 *.pbxproj -crlf -diff -merge
+
