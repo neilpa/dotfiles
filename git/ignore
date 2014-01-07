@@ -3,3 +3,18 @@
 desktop.ini
 .DS_Store
 
+# XCode junk
+
+# personal settings
+*.pbxuser
+*.perspective
+*.perspective3
+*.mode1v3
+*.mode2v3
+xcuserdata
+
+# xcode VCS metadata
+*.xccheckout
+
+# just treat the pbxproj file as binary: don't show the diff, don't try to merge
+*.pbxproj -crlf -diff -merge
