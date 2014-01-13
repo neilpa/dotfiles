@@ -1,0 +1,16 @@
+
+[$XDG_CONFIG_HOME/git]
+checkout = git clone https://github.com/neilpa/config-git.git git
+
+[$HOME/.vim]
+checkout = git clone https://github.com/neilpa/config-vim.git .vim
+
+[$XDG_CONFIG_HOME/xcode]
+checkout = git clone git://github.com/neilpa/config-lldb.git xcode
+
+[$HOME/.zsh]
+checkout = git clone git://github.com/neilpa/config-zsh.git .zsh
+
+[$HOME/.dotfiles]
+checkout = git clone git://github.com/neilpa/dotfiles-holman.git .dotfiles
+

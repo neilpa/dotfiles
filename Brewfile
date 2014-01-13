@@ -5,8 +5,8 @@ update
 upgrade
 
 # Build an install
-# install git
-# install mr
+install git
+install mr
 # install vim
 # install macvim
 
