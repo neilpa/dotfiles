@@ -24,6 +24,7 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+	keepBackup = false
 [merge]
 	tool = Kaleidoscope
 
