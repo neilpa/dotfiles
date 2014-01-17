@@ -1,1 +1,5 @@
 command alias racbt po [RACBacktrace backtrace]
+
+# Recursive view hierarchy dump (rd <view>)
+# http://nshipster.com/reader-submissions-new-years-2013/
+command regex rd 's/^[[:space:]]*$/po [[[UIApplication sharedApplication] keyWindow] recursiveDescription]/' 's/^(.+)$/po [%1 recursiveDescription]/'
