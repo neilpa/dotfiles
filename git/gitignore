@@ -1,8 +1,0 @@
-# Shell files
-[Tt]humbs.db
-desktop.ini
-.DS_Store
-
-# Vim
-*.swp
-.netrwhist
