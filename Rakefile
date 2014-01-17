@@ -46,7 +46,7 @@ def link_file src, dest
 end
 
 # Read user input from STDIN without having to press ENTER
-# http://stackoverflow.com/a/14527475/1999152
+# Take from http://stackoverflow.com/a/14527475
 def get_char
   state = `stty -g`
   `stty raw -echo -icanon isig`
@@ -54,5 +54,21 @@ def get_char
   STDIN.getc.chr
 ensure
   `stty #{state}`
+end
+
+
+# Cross-platform way of finding an executable in the $PATH.
+# Taken from http://stackoverflow.com/a/5471032
+#
+#   which('ruby') #=> /usr/bin/ruby
+def which cmd
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each { |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return exe if File.executable? exe
+    }
+  end
+  return nil
 end
 
