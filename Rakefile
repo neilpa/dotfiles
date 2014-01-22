@@ -6,6 +6,7 @@ task :default => :link
 
 links = {
   'xcode/lldbinit' => '~/.lldbinit',
+  'vim' => '~/.vim',
   'zsh/zshenv' => '~/.zshenv',
 }
 
