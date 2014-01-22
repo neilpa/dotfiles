@@ -4,4 +4,9 @@
 
 # Remaining config is under XDG home
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-source $ZDOTDIR/.zshenv
+
+# Ensure we search local first
+export PATH=~/.rbenv/shims:/usr/local/bin:${PATH}
+# And remove any duplicate entries
+typeset -U PATH
+

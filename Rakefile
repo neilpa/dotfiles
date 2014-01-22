@@ -1,25 +1,20 @@
 # Rakefile for setting up my dotfiles
 
 DOTFILES = File.expand_path(File.dirname(__FILE__))
-HOME = ENV["HOME"]
 
 task :default => :link
 
+links = {
+  'xcode/lldbinit' => '~/.lldbinit',
+  'zsh/zshenv' => '~/.zshenv',
+}
+
 # TODO Should these be converted to file tasks instead
 task :link do
-  # Each config set maps to a directory
-  glob('**/*.symlink').each do |source|
-    target = "#{HOME}/.#{base(source).ext}"
-    symlink_prompt source, target
-  end
-
-  # TODO Seperate tasks
-  mkdir_p "#{HOME}/bin"
-  glob('*/bin/*').each do |source|
-    symlink_prompt source, "#{HOME}/bin/#{base(source)}"
+  links.each do |s,t|
+    symlink_prompt "#{DOTFILES}/#{s}", "#{expand(t)}"
   end
 end
-
 
 def glob pattern
   Dir.glob("#{DOTFILES}/#{pattern}")
@@ -29,7 +24,15 @@ def base file
   File.basename(file)
 end
 
+def expand file
+  File.expand_path(file)
+end
+
 def symlink_prompt source, target
+  unless File.exist? source
+    puts "Linking to non-existant file #{source}"
+  end
+
   if File.exist? target
     puts "File (#{target}) alread exists, what do you want to do?"
     print '[s]kip, [r]eplace, [b]ackup, [q]uit? '
@@ -45,13 +48,11 @@ def symlink_prompt source, target
 end
 
 def backup_file source, target
-    puts 'backup'
     File.rename target, "#{target}.#{timestamp}.bak"
     link_file source, target
 end
 
 def replace_file source, target
-    puts 'replace'
     File.delete target
     link_file source, target
 end
