@@ -2,11 +2,14 @@
 [[ -n $XDG_CONFIG_HOME ]] || export XDG_CONFIG_HOME="$HOME/.config"
 [[ -n $XDG_CACHE_HOME ]] || export XDG_CACHE_HOME="$HOME/.cache"
 
-# Remaining config is under XDG home
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-
 # Ensure we search local first
 export PATH=~/.rbenv/shims:/usr/local/bin:${PATH}
 # And remove any duplicate entries
 typeset -U PATH
+
+# The colors duke, the colors!
+export CLICOLOR=1
+
+# Remaining config is under XDG home
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
