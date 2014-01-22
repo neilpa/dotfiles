@@ -45,4 +45,6 @@
 	lg2 = !"git lgf2 --branches --tags --remotes"
 	lg3 = !"git lgf3 --branches --tags --remotes"
 	lg = !"git lg1"
+	ahead = !"git lg1 --branches --not --remotes"
+
 
