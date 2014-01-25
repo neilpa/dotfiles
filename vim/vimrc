@@ -5,17 +5,26 @@
 "Obviously want all possible Vim features
 set nocompatible
 
-"Use Pathogen to load all bundles
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-"call pathogen#helptags()
+"Filetype off for loading Vundle plugins
+filetype off
+
+"Load Vundle
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle can be self hosted self-host
+Bundle 'gmarik/vundle'
+
+" All my plugins
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Valloric/YouCompleteMe'
+
+"Turn filetype detection back on
+filetype plugin on
+"filetype indent on
 
 "Have Vim rememember lots of commands
 set history=75
-
-"Turn on filetype plugins
-filetype plugin on
-"filetype indent on
 
 "Nice mouse selection mode in Windows
 if has("win32")
@@ -26,7 +35,7 @@ endif
 set mouse=a
 
 "Don't let files override my vimrc settings
-"TODO - re-evaluate this, maybe learn folds
+"REVIEW re-evaluate this, maybe learn folds
 set nomodeline
 
 "==========================================================================
@@ -38,7 +47,7 @@ syntax on
 
 "Solarized looks good everywhere - console and gvim
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 "Keep cursor from screen top/bottom
 set scrolloff=3

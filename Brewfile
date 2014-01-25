@@ -6,9 +6,11 @@ upgrade
 
 # Build an install
 install git
-install mr
-# install vim
-# install macvim
+#install mr
+install macvim --override-system-vim --with-lua --with-luajit
+
+# cmake for building (vim's YouCompleteMe)
+install cmake
 
 # Setup Homebrew Casks for apps
 tap phinze/cask
