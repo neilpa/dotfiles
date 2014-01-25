@@ -4,6 +4,9 @@
 [Tt]humbs.db
 desktop.ini
 
+# zsh
+.zcompdump
+
 # OS X
 .DS_Store
 .AppleDouble
@@ -18,6 +21,7 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
 # XCode junk
 
 # personal settings
