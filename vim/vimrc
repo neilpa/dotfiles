@@ -19,6 +19,11 @@ Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Valloric/YouCompleteMe'
 
+"Only need powershell plugins on Windows
+if has("win32")
+    Bundle 'PProvost/vim-ps1'
+endif
+
 "Turn filetype detection back on
 filetype plugin on
 "filetype indent on
