@@ -12,6 +12,9 @@ install macvim --override-system-vim --with-lua --with-luajit
 # cmake for building (vim's YouCompleteMe)
 install cmake
 
+# code search
+install ag
+
 # Setup Homebrew Casks for apps
 tap phinze/cask
 install brew-cask
