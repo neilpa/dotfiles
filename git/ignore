@@ -23,6 +23,7 @@ Icon
 .Trashes
 
 # XCode junk
+.xctool-args
 
 # personal settings
 *.pbxuser

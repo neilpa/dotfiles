@@ -36,6 +36,9 @@
 	dt = difftool
 	dtc = difftool --cached
 
+	hpop = reset --soft HEAD^
+	spop = stash pop
+
 	graph = log --graph --abbrev-commit --decorate
 	lgf1 = !"git graph --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 	lgf2 = !"git graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
