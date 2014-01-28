@@ -31,8 +31,12 @@
 [alias]
 	co = checkout
 	ci = commit
+
 	st = status --short --branch
 	stat = status
+
+	d = diff
+	dc = dif --cached
 	dt = difftool
 	dtc = difftool --cached
 
