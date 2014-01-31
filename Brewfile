@@ -22,6 +22,9 @@ install brew-cask
 # Install apps
 # cask install google-chrome
 
+# Development
+cask install intellij-idea-community
+
 # Install fonts
 tap caskroom/fonts
 
