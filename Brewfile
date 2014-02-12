@@ -20,6 +20,7 @@ tap phinze/cask
 install brew-cask
 
 # Install apps
+cask install alfred
 # cask install google-chrome
 
 # Development
@@ -28,5 +29,9 @@ cask install intellij-idea-community
 # Install fonts
 tap caskroom/fonts
 
+# Make sure alfred finds all cask installed apps
+cask alfred link
+
 # Remove outdated versions from the cellar
 cleanup
+
