@@ -22,6 +22,8 @@ install brew-cask
 # Install apps
 cask install alfred
 # cask install google-chrome
+cask install vagrant
+cask install spectacle
 
 # Development
 cask install intellij-idea-community
