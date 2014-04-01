@@ -54,4 +54,6 @@
 	lg = !"git lg1"
 	ahead = !"git lg1 --branches --not --remotes"
 
+[hub]
+	protocol = https
 

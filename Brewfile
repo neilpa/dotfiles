@@ -7,6 +7,9 @@ upgrade
 # Updated version of git rather than old system default
 install git
 
+# Github specific wrapper
+install hub
+
 # Lots of stuff for vim
 install lua
 install luajit
