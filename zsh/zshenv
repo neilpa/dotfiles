@@ -3,7 +3,7 @@
 [[ -n $XDG_CACHE_HOME ]] || export XDG_CACHE_HOME="$HOME/.cache"
 
 # Ensure we search local first
-export PATH=~/.rbenv/shims:/usr/local/bin:${PATH}
+export PATH=/usr/local/bin:${PATH}
 # And remove any duplicate entries
 typeset -U PATH
 
@@ -12,4 +12,11 @@ export CLICOLOR=1
 
 # Remaining config is under XDG home
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+
+# Android fun
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# rbenv
+export PATH=~/.rbenv/shims:${PATH}
+eval "$(rbenv init -)"
 

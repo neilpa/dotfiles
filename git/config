@@ -39,6 +39,7 @@
 	dc = diff --cached
 	dt = difftool
 	dtc = difftool --cached
+	dth = difftool HEAD
 
 	hpop = reset --soft HEAD^
 	spop = stash pop

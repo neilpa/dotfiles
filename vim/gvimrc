@@ -7,7 +7,7 @@ set guioptions=cr
 
 "Easy on the eyes colorscheme
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 "Nice fonts
 if has("win32")

@@ -12,12 +12,12 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Vundle can be self hosted self-host
+" Vundle can be self hosted
 Bundle 'gmarik/vundle'
 
 " All my plugins
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 "Only need powershell plugins on Windows
 if has("win32")
