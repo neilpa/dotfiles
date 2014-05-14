@@ -24,3 +24,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -U promptinit && promptinit
 prompt pure
 
+# Todo list helpers
+alias t='todo.sh -d ~/.config/todo/todo.cfg'
+
