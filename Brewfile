@@ -13,11 +13,15 @@ install hub
 # Lots of stuff for vim
 install lua
 install luajit
-install cmake # for building YouCompleteMe
+install cmake
 install macvim --override-system-vim --with-lua --with-luajit
+
+# Android SDK
+install android-sdk
 
 # Ruby environment management
 install rbenv
+install ruby-build
 
 # Better command line xcode build
 install xctool
@@ -45,13 +49,14 @@ cask install hipchat
 
 # Virtual machines
 cask install vagrant
+cask install virtualbox
 
 # Window management shortcuts
 cask install spectacle
 
 # Java IDE
 cask install java
-cask install intellij-idea-ultimate
+cask install intellij-idea
 
 # Better than XCode
 cask install appcode
@@ -77,7 +82,7 @@ cask install sonos
 cask install vlc
 
 # Ugh
-cask install sophos-antivirus
+cask install sophos-anti-virus-home-edition
 
 # Pivotal desktop client
 cask install pivotalbooster
