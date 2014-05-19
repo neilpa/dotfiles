@@ -55,6 +55,8 @@
 	lg = !"git lg1"
 	ahead = !"git lg1 --branches --not --remotes"
 
+	apply-ignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+
 [hub]
 	protocol = https
 
