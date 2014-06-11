@@ -1,11 +1,11 @@
 "==========================================================================
-" General
+" Plugin Install
 "==========================================================================
 
 "Obviously want all possible Vim features
 set nocompatible
 
-"Load Vundle
+"Load NeoBundle
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -15,8 +15,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " All my plugins
-NeoBundle 'altercation/vim-colors-solarized'
 " NeoBundle 'Valloric/YouCompleteMe'
+
+" Extra colorschemes
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 " Extra syntax highlighting
 NeoBundle 'tfnico/vim-gradle'
@@ -36,6 +39,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+"==========================================================================
+" VIM User Interface
+"==========================================================================
+
 "Have Vim rememember lots of commands
 set history=75
 
@@ -51,16 +58,12 @@ set mouse=a
 "REVIEW re-evaluate this, maybe learn folds
 set nomodeline
 
-"==========================================================================
-" VIM User Interface
-"==========================================================================
-
 "Can't live without syntax highlighting
 syntax on
 
-"Solarized looks good everywhere - console and gvim
+"Tomorrow Night Eighties has grown on me
 set background=dark
-"colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 
 "Keep cursor from screen top/bottom
 set scrolloff=3
@@ -335,20 +338,6 @@ command! WQ1 wq!
 cabbrev w1 w!
 cabbrev wq1 wq!
 cabbrev q1 q!
-
-
-"==========================================================================
-" Plugins
-"==========================================================================
-
-"BufferGator
-""""""""""""
-if has("win32")
-    nnoremap <silent> <F3> :BuffergatorToggle<CR>
-endif
-" Don't resive the window when opening the buffer window
-let g:buffergator_autoexpand_on_split = 0
-
 
 "==========================================================================
 " Helper Functions
