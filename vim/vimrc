@@ -17,9 +17,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " All my plugins
 " NeoBundle 'Valloric/YouCompleteMe'
 
-" Extra colorschemes
+" The colors Duke, the colors!
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'vim-scripts/peaksea'
 
 " Extra syntax highlighting
 NeoBundle 'tfnico/vim-gradle'
