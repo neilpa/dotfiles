@@ -5,28 +5,36 @@
 "Obviously want all possible Vim features
 set nocompatible
 
-"Filetype off for loading Vundle plugins
-filetype off
-
 "Load Vundle
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Vundle can be self hosted
-Bundle 'gmarik/vundle'
+" NeoBundle can be self hosted
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " All my plugins
-Bundle 'altercation/vim-colors-solarized'
-" Bundle 'Valloric/YouCompleteMe'
+NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'Valloric/YouCompleteMe'
+
+" Extra syntax highlighting
+NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'toyamarinyon/vim-swift'
 
 "Only need powershell plugins on Windows
 if has("win32")
-    Bundle 'PProvost/vim-ps1'
+    NeoBundle 'PProvost/vim-ps1'
 endif
 
+call neobundle#end()
+
 "Turn filetype detection back on
-filetype plugin on
-"filetype indent on
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 "Have Vim rememember lots of commands
 set history=75
