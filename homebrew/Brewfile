@@ -42,7 +42,7 @@ cask alfred link
 cask install google-chrome
 
 # Better terminal
-cask install iterm2
+cask install iterm2-beta
 
 # Messaging
 cask install hipchat
