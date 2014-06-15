@@ -5,3 +5,7 @@ alias ll="ls -lh"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# Old windows habits die hard
+alias copy=cp
+alias del=rm
