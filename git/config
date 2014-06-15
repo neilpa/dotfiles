@@ -1,0 +1,62 @@
+[credential]
+	helper = osxkeychain
+
+[user]
+	name = Neil Pankey
+	email = neil@wire.im
+
+[push]
+	default = simple
+[pull]
+	rebase = preserve
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "odd"]
+        cmd = "odd.exe $LOCAL $REMOTE"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+	keepBackup = false
+[merge]
+	tool = Kaleidoscope
+
+[alias]
+	co = checkout
+	ci = commit
+
+	st = status --short --branch
+	stat = status
+
+	d = diff
+	dc = diff --cached
+	dt = difftool
+	dtc = difftool --cached
+	dth = difftool HEAD
+
+	hpop = reset --soft HEAD^
+	spop = stash pop
+
+	graph = log --graph --abbrev-commit --decorate
+	lgf1 = !"git graph --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
+	lgf2 = !"git graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
+	lgf3 = log --graph --format=format:'%C(bold blue)%h %Creset%an %C(bold green)(%ar) %C(yellow)%d%n        %Creset%s%n'
+
+	lg1 = !"git lgf1 --branches --tags --remotes"
+	lg2 = !"git lgf2 --branches --tags --remotes"
+	lg3 = !"git lgf3 --branches --tags --remotes"
+	lg = !"git lg1"
+	ahead = !"git lg1 --branches --not --remotes"
+
+	apply-ignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+
+[hub]
+	protocol = https
+

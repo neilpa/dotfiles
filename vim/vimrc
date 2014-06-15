@@ -1,0 +1,369 @@
+"==========================================================================
+" Plugin Install
+"==========================================================================
+
+"Obviously want all possible Vim features
+set nocompatible
+
+"Load NeoBundle
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" NeoBundle can be self hosted
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" All my plugins
+" NeoBundle 'Valloric/YouCompleteMe'
+
+" The colors Duke, the colors!
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
+NeoBundle 'vim-scripts/peaksea'
+
+" Extra syntax highlighting
+NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'toyamarinyon/vim-swift'
+
+"Only need powershell plugins on Windows
+if has("win32")
+    NeoBundle 'PProvost/vim-ps1'
+endif
+
+call neobundle#end()
+
+"Turn filetype detection back on
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+"==========================================================================
+" VIM User Interface
+"==========================================================================
+
+"Have Vim rememember lots of commands
+set history=75
+
+"Nice mouse selection mode in Windows
+if has("win32")
+    behave mswin
+endif
+
+"Always have the mouse enabled
+set mouse=a
+
+"Don't let files override my vimrc settings
+"REVIEW re-evaluate this, maybe learn folds
+set nomodeline
+
+"Can't live without syntax highlighting
+syntax on
+
+"Tomorrow Night Eighties has grown on me
+set background=dark
+colorscheme Tomorrow-Night-Eighties
+
+"Keep cursor from screen top/bottom
+set scrolloff=3
+
+"Don't redraw when running macros
+set lazyredraw
+
+"Show line numbers
+"set number
+
+"Make arrow keys wrap at start/end of lines
+set whichwrap+=>,<,],[
+
+"Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+"Numbers with leading 0s should be treated as decimal,
+"not octal when using CTRL-A and CTRL-X
+set nrformats-=octal
+
+"Command line
+set cmdwinheight=4  "smaller command history window
+set showcmd         "tab complete partial commands
+set wildmode=full   "fully complete first match and ...
+set wildmenu        " ... show all matches in status bar
+
+"Insert completion
+"TODO get this setup better
+set complete-=i     "searching include files is too slow because of precomp's
+
+"Show non-printable characters (hl-SpecialKey)
+set listchars=tab:»·
+if has("win32")
+    set listchars+=trail:•
+else
+    set listchars+=trail:.
+endif
+set list
+
+"Turn off line wrapping
+"set nowrap
+"set listchars+=extends:>,precedes:<
+
+"Searching tweaks
+set ignorecase      "case insensetive searching
+set smartcase       "mixed case makes it sensetive
+set incsearch       "find as you type
+set nohlsearch      "highlighted search terms are annoying
+set magic           "use 'magic' patterns (extended regular expressions).
+set mmp=25000       "more memory for pattern matching (25MB)
+"set nowrapscan     "don't wrap search at top/bottom of file
+
+"TODO: These don't work quite the way I like
+"Searcing outside of Vim
+if has("win32")
+    set grepprg=findstr\ /nspi\ $*
+else
+    set grepprg=grep\ -nriH\ $*
+endif
+
+"Nice looking status line that's always visible
+set statusline=%f\ [%Y%M%R]\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n%=[%b][0x%B]
+set laststatus=2
+
+"Servername and current directory in the title string
+set titlestring=%{strpart(v:servername,1)}\ \ %{getcwd()}
+
+"Reduce hit-enter prompts
+set shortmess=atT   "shorten and truncate as necessary
+set shortmess+=oO   "overwrite message for read/write file on subsequent changes
+set shortmess+=IW   "hide the intro and file write messages
+
+"No sound/bells on errors
+set noerrorbells
+set visualbell
+set t_vb=
+
+"Disable code folding
+set nofoldenable
+
+"Use an I-beam cursor for insert mode - this at least works with iTerm
+"http://code.google.com/p/iterm2/wiki/ProprietaryEscapeCodes
+if &term =~ "xterm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    "TODO autocmd to redraw when leaving insert mode since sometimes
+    "the cursor is slow to update
+endif
+
+"==========================================================================
+" Files, Buffers and Tabs
+"==========================================================================
+
+"Smart indents
+set autoindent
+set smartindent
+set nocindent
+set cinoptions=g0
+"set cinkeys=
+
+"TODO: Figure out good settings here
+"set formatoptions=
+"set comments=
+
+"Always use spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+"Allow changing buffers without saving
+set hidden
+
+"Automagically read files when changed from outside vim
+set autoread
+"Write changes when running special commands (:make, !, etc.)
+set autowrite
+
+"No annoying backup or swap files
+set nobackup
+set noswapfile
+
+"==========================================================================
+" Key Mappings
+"==========================================================================
+
+"Ex mode is super annoying so map it to nothing
+nnoremap Q <Nop>
+
+"Make Y copy to the end of the line similiar to C and D
+map Y y$
+
+"Swap 0 and ^, moving to first non-blank character is more useful
+noremap ^ 0
+noremap 0 ^
+
+"Delete to the black whole register first so that pasting
+"in visual mode doesn't overwrite the unnamed register
+vnoremap p "_dp
+vnoremap P "_dP
+
+"CTRL-C copies to the clipboard
+vmap <C-C> "*y
+
+"CTRL-P pastes from the clipboard
+nmap <C-P> "*p
+vmap <C-P> "*p
+cmap <C-P> <C-R>*
+
+"Disable pasting with middle mouse click (double click still pastes)
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
+
+"TODO: Something better for this and for Backspace
+"Easy page-up/down without moving my fingers
+noremap <Space> <PageDown>
+noremap <S-Space> <PageUp>
+
+" scroll the window (but leaving the cursor in the same place) by a couple of
+" lines up/down with <Ins>/<Del> (like in `Lynx'):
+"noremap <Ins> 2<C-Y>
+"noremap <Del> 2<C-E>
+" [<Ins> by default is like i, and <Del> like x.]
+
+"Quickly move between windows
+"TODO should these use <Leader>?
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
+
+"Find files in the source tree
+nmap <Leader>f <ESC>:find<SPACE>
+
+"Change CWD to that of current file
+map <Leader>cdd <ESC>:cd %:p:h<CR>
+
+"Fast editing of vimrc and vim files
+if has("win32")
+    map <Leader>vrc :e! ~/_vimrc<cr>
+    map <Leader>vim :cd! ~/vimfiles<cr>
+else
+    map <Leader>vrc :e! ~/.vimrc<cr>
+    map <Leader>vim :cd! ~/.vim<cr>
+endif
+
+"Fast editing of autohotkey script
+"map <Leader>ahk :e! c:\tools\ahk\base.ahk
+
+" Pull word under cursor into LHS of a substitute
+nmap <Leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
+" Pull Visually Highlighted text into LHS of a substitute
+"vmap <Leader>z :<C-U>%s/\<<c-r>*\>/
+
+"The following beast is something I didn't write... it will return the
+"syntax highlighting group that the current "thing" under the cursor
+"belongs to -- very useful for figuring out what to change as far as
+"syntax highlighting goes.
+nmap <silent> <F12> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
+     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
+     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+     \ . ">"<CR>
+
+
+"==========================================================================
+" Autocommands
+"==========================================================================
+
+"Grouping for all my custom autocmds
+augroup neilpa
+
+"Remove ALL autocommands in my group to avoid dupes
+autocmd!
+
+"When editing a file, always jump to the last known cursor position.
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+"Use template files if they exist
+autocmd BufNewFile *
+    \ if filereadable("$HOME/vimfiles/templates/%:t") |
+    \   keepalt 0r ~/vimfiles/templates/%:t |
+    \ else |
+    \   silent! keepalt 0r ~/vimfiles/templates/skel.%:e |
+    \ endif
+
+" Start cmdwindow (q: or q/) in insert mode.
+autocmd CmdwinEnter * startinsert
+
+" Like to hide the status line for quickfix windows
+"autocmd BufAdd *
+"    \ if &buftype == "quickfix" |
+"    \   setlocal laststatus=0
+"    \ endif
+
+augroup END
+
+
+"==========================================================================
+" Abbreviations
+"==========================================================================
+
+" My common typos
+iabbrev teh the
+iabbrev inlcude include
+iabbrev incldue include
+iabbrev inlcdue include
+
+" My common misspellings
+iabbrev seperate separate
+iabbrev seperator separator
+
+"Commands work better than cabbrev where possible
+command! -bang -complete=file E e<bang>
+command! -bang W w<bang>
+command! -bang Q q<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Qa qa<bang>
+command! -bang QA qa<bang>
+command! -bang Wqa wqa<bang>
+command! -bang WQa wqa<bang>
+command! -bang WQA wqa<bang>
+command! W1 w!
+command! Q1 q!
+command! Wq1 wq!
+command! WQ1 wq!
+cabbrev w1 w!
+cabbrev wq1 wq!
+cabbrev q1 q!
+
+"==========================================================================
+" Helper Functions
+"==========================================================================
+
+function! AsyncCmd(cmd)
+    exe "silent !start " . a:cmd
+endfunction
+
+"Deletes trailing whitespace, saves cursor pos and last search
+function! RemoveWhitespace()
+    if &bin | return | endif
+    let line = line('.') | let col = col('.') | let srch = @/
+    silent %s/\s\+$//ge
+    call cursor(line, col) | let @/ = srch
+endfunction
+
+"==========================================================================
+" Miscellaneous
+"==========================================================================
+
+"Machine specific additions/overrides
+if has("win32")
+    exec "runtime " . expand('$COMPUTERNAME') . ".vim"
+else
+    exec "runtime " . expand('$HOSTNAME') . ".vim"
+endif
+
