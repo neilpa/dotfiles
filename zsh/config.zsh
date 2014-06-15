@@ -1,13 +1,10 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
-fi
+fpath=($ZSH/functions $fpath)
+
+autoload -U promptinit && promptinit
+prompt pure
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
-
-fpath=($ZSH/functions $fpath)
 
 autoload -U $ZSH/functions/*(:t)
 
