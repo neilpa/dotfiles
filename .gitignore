@@ -1,5 +1,7 @@
-# NeoBundle manages vim plugins
-vim/bundle/
+atom.symlink/.node-gyp
+atom.symlink/.storage
+atom.symlink/packages
+atom.symlink/storage
+atom.symlink/themes
 
-# github/hub creds
-/hub
+git/gitconfig.symlink
