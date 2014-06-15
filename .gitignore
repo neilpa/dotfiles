@@ -1,5 +1,5 @@
 # NeoBundle manages vim plugins
-vim/bundle/
+vim.symlink/bundle/
 
 # github/hub creds
 /hub
