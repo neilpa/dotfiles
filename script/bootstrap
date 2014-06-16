@@ -2,6 +2,10 @@
 #
 # bootstrap installs things.
 
+# sudo keep-alive from https://gist.github.com/cowboy/3118588
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd)
 

@@ -1,0 +1,1 @@
+alias pyg=pygmentize
