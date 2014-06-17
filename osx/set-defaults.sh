@@ -7,6 +7,10 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Never play the annoying system beep
+defaults write -g com.apple.sound.beep.feedback -int 0
+defaults write com.apple.systemsound com.apple.sound.beep.volume -int 0
+
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
