@@ -85,7 +85,7 @@ cask install vlc
 cask install sophos-anti-virus-home-edition
 
 # Pivotal desktop client
-cask install pivotalbooster
+#cask install pivotalbooster
 
 # File diff
 cask install kaleidoscope
@@ -95,6 +95,9 @@ cask install tunnelblick
 
 # Torrentz
 cask install transmission
+
+# MS Paint for OSX
+cask install paintbrush
 
 # Install fonts
 tap caskroom/fonts
