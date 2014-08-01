@@ -16,6 +16,9 @@ install luajit
 install cmake
 install macvim --override-system-vim --with-lua --with-luajit
 
+# Awesome command line JSON processor
+install jq
+
 # Android SDK
 install android-sdk
 
