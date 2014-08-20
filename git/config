@@ -10,6 +10,9 @@
 [pull]
 	rebase = preserve
 
+[core]
+    commentchar = $
+
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "odd"]
