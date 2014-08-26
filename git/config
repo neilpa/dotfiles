@@ -37,9 +37,9 @@
 
 	d = difftool HEAD
 	dt = difftool
-	dtc = difftool --cached
-	dth = difftool HEAD
-	dt1 = difftool HEAD~1
+	dc = difftool --cached
+	dh = difftool HEAD
+	d1 = difftool HEAD~1
 
 	graph = log --graph --abbrev-commit --decorate
 	lgf1 = !"git graph --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
