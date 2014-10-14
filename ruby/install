@@ -1,16 +1,37 @@
 #!/bin/sh
 
-if test ! $(which rbenv)
-then
-  echo "  Installing rbenv for you."
-  brew install rbenv > /tmp/rbenv-install.log
-fi
+main () {
+    install_rbenv
+    install_gems
+}
 
-if test ! $(which ruby-build)
-then
-  echo "  Installing ruby-build for you."
-  brew install ruby-build > /tmp/ruby-build-install.log
-fi
+install_rbenv () {
+    if test ! $(which rbenv)
+    then
+      echo "  Installing rbenv for you."
+      brew install rbenv > /tmp/rbenv-install.log
+    fi
 
-# TODO install some versions of Ruby and do a rehash
+    if test ! $(which ruby-build)
+    then
+      echo "  Installing ruby-build for you."
+      brew install ruby-build > /tmp/ruby-build-install.log
+
+      rbenv install 2.1.3
+      rbenv rehash
+    fi
+}
+
+GEMS=(
+    bundler
+    cocoapods
+)
+
+install_gems () {
+    for gem in "${GEMS[@]}"; do
+        gem install $gem
+    done
+}
+
+main
 
