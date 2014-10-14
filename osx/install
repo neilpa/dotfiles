@@ -5,7 +5,10 @@
 # The original idea (and a couple settings) were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
-# Never play the annoying system beep
+# Enable repeat on keydown
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Never play the annoying system beep and sound effect when changing volume
 defaults write -g com.apple.sound.beep.feedback -int 0
 defaults write com.apple.systemsound com.apple.sound.beep.volume -int 0
 
@@ -18,8 +21,10 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
-# Set a really fast key repeat.
-# defaults write NSGlobalDomain KeyRepeat -int 0
+# Disable extension change warning
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# Show all file extensions
+defaults write com.apple.finder AppleShowAllExtensions -bool true
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -27,9 +32,8 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Show the current path in the bottom of Finder windows.
 defaults write com.apple.finder ShowPathBar -bool true
-
-# Show all file extensions
-defaults write com.apple.finder AppleShowAllExtensions -bool
+# Show absolute path in finder's title bar. 
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
 # Hide Safari's bookmark bar.
 defaults write com.apple.Safari ShowFavoritesBar -bool false
@@ -43,4 +47,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Auto hide the dock
 defaults write com.apple.Dock autohide -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
