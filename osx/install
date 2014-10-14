@@ -29,6 +29,7 @@ sudo pmset -a standbydelay 86400
 
 #
 # Input
+# Most of these probably require a reboot
 #
 
 # Enable repeat on keydown
@@ -40,6 +41,15 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Turn off keyboard illumination when computer is not used for 5 minutes
 defaults write com.apple.BezelServices kDimTime -int 300
+
+# Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# F1-F12 are actual function keys, not media keys buy default
+defaults write NSGlobalDomain com.apple.keyboard.fnState -int 1
+
+# Disable "natural" scrolling on the trackpad
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 
 #
