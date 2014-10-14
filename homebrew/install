@@ -3,6 +3,8 @@
 # Essentially stole this from
 # https://github.com/tacahilo/.dotfiles/commit/0c75dc897a307c976bc75e09bc40686e6f0533d1
 
+# TODO Do I really want one big list for these?
+
 PATH=/usr/local/bin:$PATH
 
 TAPS=(
@@ -29,7 +31,7 @@ FORMULAS=(
 CASKS=(
     alfred
     google-chrome
-    iterm2-beta
+    iterm2
     hipchat
     vagrant
     virtualbox
@@ -37,7 +39,7 @@ CASKS=(
     java
     intellij-idea
     appcode
-    install hockey-app
+    hockey-app
     github
     appcleaner
     league-of-legends
@@ -52,12 +54,6 @@ CASKS=(
     sketch
     imageoptim
 )
-
-function setup() {
-    [ -x "/usr/local/bin/brew" ] || {
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    }
-}
 
 function install_brewfiles() {
     for tap in "${TAPS[@]}"; do
@@ -79,8 +75,6 @@ function install_caskfiles() {
 }
 
 function main() {
-    setup
-
     brew update
     brew upgrade
 
