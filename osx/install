@@ -1,30 +1,83 @@
 # Sets reasonable OS X defaults.
 #
-# Or, in other words, set shit how I like in OS X.
+# Settings grabbed from multiple sources
 #
-# The original idea (and a couple settings) were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+#   https://gist.github.com/brandonb927/3195465
+#
+
+#
+# General
+#
+
+# Disabling OS X Gate Keeper
+# (You'll be able to install any app you want from here on, not just Mac App Store apps)
+sudo spctl --master-disable
+sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disabling automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Speeding up wake from sleep to 24 hours from an hour
+# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+sudo pmset -a standbydelay 86400
+
+
+#
+# Input
+#
 
 # Enable repeat on keydown
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Disable smart quotes and smart dashes as they're annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Turn off keyboard illumination when computer is not used for 5 minutes
+defaults write com.apple.BezelServices kDimTime -int 300
+
+
+#
+# Sound
+#
 
 # Never play the annoying system beep and sound effect when changing volume
 defaults write -g com.apple.sound.beep.feedback -int 0
 defaults write com.apple.systemsound com.apple.sound.beep.volume -int 0
 
-# Disable press-and-hold for keys in favor of key repeat.
-defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Always open everything in Finder's list view. This is important.
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+#
+# Dock
+#
+
+# Auto hide the dock and remove delay
+defaults write com.apple.Dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate
+defaults write com.apple.dock tilesize -int 36
+
+
+#
+# Finder
+#
+
+# Always open everything in Finder's colum view
+defaults write com.apple.Finder FXPreferredViewStyle Clmv
+
+# Show all file extensions
+defaults write com.apple.finder AppleShowAllExtensions -bool true
+# Disable extension change warning
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library
-
-# Disable extension change warning
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-# Show all file extensions
-defaults write com.apple.finder AppleShowAllExtensions -bool true
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -35,8 +88,27 @@ defaults write com.apple.finder ShowPathBar -bool true
 # Show absolute path in finder's title bar. 
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
+# Allowing text selection in Quick Look/Preview in Finder by default
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Avoiding the creation of .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Enabling snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+
+#
+# Safari/Webkit
+#
+
 # Hide Safari's bookmark bar.
 defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# Hiding Safari's sidebar in Top Sites
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 
 # Set up Safari for development.
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
@@ -44,10 +116,4 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-# Auto hide the dock
-defaults write com.apple.Dock autohide -bool true
-
-# Avoid creating .DS_Store files on network volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
