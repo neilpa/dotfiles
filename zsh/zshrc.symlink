@@ -28,6 +28,11 @@ done
 autoload -U compinit
 compinit
 
+# saner color switching rather than the nasty escape codes
+# https://wiki.archlinux.org/index.php/zsh#Colors
+autoload -U colors
+colors
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
