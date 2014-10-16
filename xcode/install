@@ -1,0 +1,17 @@
+#!/bin/sh
+
+mkdir -p $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes
+
+# Install Alcatraz for Xcode plugin management
+# 
+# TODO Although their script is simple, not a fan of downloading and running
+# it from the intertubes. Should be able to hit the github releases API myself
+# to download and extract the tarball.
+#
+#   DOWNLOAD_URI=https://github.com/supermarin/Alcatraz/releases/download/1.0.8/Alcatraz.tar.gz
+#   PLUGINS_DIR="${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
+# 
+#   mkdir -p "${PLUGINS_DIR}"
+#   curl -L $DOWNLOAD_URI | tar xvz -C "${PLUGINS_DIR}"
+curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+
