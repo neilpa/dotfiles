@@ -4,6 +4,9 @@
 [Tt]humbs.db
 desktop.ini
 
+# Vim
+.netrwhist
+
 # zsh
 .zcompdump
 
