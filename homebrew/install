@@ -26,6 +26,7 @@ FORMULAS=(
     caskroom/cask/brew-cask
     imagemagick
     curl
+    pngcrush
 )
 
 CASKS=(
