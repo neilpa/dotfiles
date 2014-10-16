@@ -14,46 +14,46 @@ TAPS=(
 )
 
 FORMULAS=(
+    caskroom/cask/brew-cask
+    curl
     git
     hub
+    imagemagick
+    jq
     lua
     luajit
-    "vim --override-system-vim --with-lua --with-luajit"
-    jq
+    pngcrush
     rbenv
     ruby-build
     the_silver_searcher
-    caskroom/cask/brew-cask
-    imagemagick
-    curl
-    pngcrush
+    "vim --override-system-vim --with-lua --with-luajit"
 )
 
 CASKS=(
     alfred
-    google-chrome
-    iterm2
-    hipchat
-    vagrant
-    virtualbox
-    spectacle
-    java
-    intellij-idea
-    appcode
-    hockey-app
-    github
     appcleaner
-    league-of-legends
-    spotify
-    spotify-notifications
-    sonos
-    vlc
+    appcode
+    github
+    google-chrome
+    hipchat
+    hockey-app
+    imageoptim
+    intellij-idea
+    iterm2
+    java
     kaleidoscope
-    tunnelblick
-    transmission
+    league-of-legends
     paintbrush
     sketch
-    imageoptim
+    sonos
+    spectacle
+    spotify
+    spotify-notifications
+    transmission
+    tunnelblick
+    vagrant
+    virtualbox
+    vlc
 )
 
 function install_brewfiles() {
