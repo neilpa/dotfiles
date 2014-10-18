@@ -1,0 +1,13 @@
+caskroom/cask/brew-cask
+curl
+git
+hub
+imagemagick
+jq
+lua
+luajit
+pngcrush
+rbenv
+ruby-build
+the_silver_searcher
+vim --override-system-vim --with-lua --with-luajit

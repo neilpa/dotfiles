@@ -1,77 +1,23 @@
-#!/usr/bin/env sh
+#!/bin/sh
 #
-# Essentially stole this from
-# https://github.com/tacahilo/.dotfiles/commit/0c75dc897a307c976bc75e09bc40686e6f0533d1
+# Tap and install stuff from homebrew (or caskroom)
 
-# TODO Do I really want one big list for these?
-
-PATH=/usr/local/bin:$PATH
-
-TAPS=(
-    homebrew/dupes
-    homebrew/versions
-    caskroom/fonts
-)
-
-FORMULAS=(
-    caskroom/cask/brew-cask
-    curl
-    git
-    hub
-    imagemagick
-    jq
-    lua
-    luajit
-    pngcrush
-    rbenv
-    ruby-build
-    the_silver_searcher
-    "vim --override-system-vim --with-lua --with-luajit"
-)
-
-CASKS=(
-    alfred
-    appcleaner
-    appcode
-    github
-    google-chrome
-    hex-fiend
-    hipchat
-    hockey-app
-    imageoptim
-    intellij-idea
-    iterm2
-    java
-    kaleidoscope
-    league-of-legends
-    paintbrush
-    qlstephen
-    sketch
-    sonos
-    spectacle
-    spotify
-    spotify-notifications
-    transmission
-    tunnelblick
-    vagrant
-    virtualbox
-    vlc
-)
+DIR=${0%/*}
 
 function install_brewfiles() {
-    for tap in "${TAPS[@]}"; do
+    while read tap; do
         brew tap $tap
-    done
+    done < "${DIR}/taps"
 
-    for formula in "${FORMULAS[@]}"; do
+    while read formula; do
         brew install $formula
-    done
+    done < "${DIR}/formulas"
 }
 
 function install_caskfiles() {
-    for cask in "${CASKS[@]}"; do
+    while read cask ; do
         brew cask install $cask
-    done
+    done < "${DIR}/casks"
 
     # Ensure alfred finds all the installed casks
     brew cask alfred link
