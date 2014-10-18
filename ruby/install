@@ -24,6 +24,7 @@ install_rbenv () {
 GEMS=(
     bundler
     cocoapods
+    pry
 )
 
 install_gems () {
