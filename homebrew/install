@@ -35,6 +35,7 @@ CASKS=(
     appcode
     github
     google-chrome
+    hex-fiend
     hipchat
     hockey-app
     imageoptim
