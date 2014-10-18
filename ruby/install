@@ -21,16 +21,10 @@ install_rbenv () {
     fi
 }
 
-GEMS=(
-    bundler
-    cocoapods
-    pry
-)
-
 install_gems () {
-    for gem in "${GEMS[@]}"; do
+    while read gem; do
         gem install $gem
-    done
+    done < "${0%/*}/gems"
 
     rbenv rehash
 }
