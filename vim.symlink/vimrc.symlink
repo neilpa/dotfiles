@@ -40,6 +40,9 @@ Plug 'vim-scripts/peaksea'
 Plug 'tfnico/vim-gradle'
 Plug 'toyamarinyon/vim-swift'
 
+" Rust files
+Plug 'wting/rust.vim'
+
 "Only need powershell plugins on Windows
 if has("win32")
     Plug 'PProvost/vim-ps1'
