@@ -74,7 +74,7 @@ syntax on
 
 "Tomorrow Night Eighties has grown on me
 set background=dark
-!silent colorscheme Tomorrow-Night-Eighties
+silent! colorscheme Tomorrow-Night-Eighties
 
 "Keep cursor from screen top/bottom
 set scrolloff=3
