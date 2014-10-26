@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# TODO
+
+set -e
+set -x
+
+main () {
+    # need command line tools before we can do anything else
+    install_devtools
+
+    # kickoff the xcode install in parallel
+    install_xcode
+
+    # next homebrew since some dotfile installers may use it
+    install_homebrew
+}
+
+install_devtools () {
+    info 'Installing command line tools. Expect a GUI prompt'
+    xcode-select --install & true
+
+    user 'Press enter to continue once installed'
+    read
+
+    info 'Command line developer tools installed at:'
+    xcode-select -p
+}
+
+install_xcode () {
+    user 'TODO install xcode'
+    read
+}
+
+install_homebrew () {
+    if [ -x "/usr/local/bin/brew" ]
+    then
+        info 'Homebrew already installed'
+    else
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+}
+
+info () {
+    printf "  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+    printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+    printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+    printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+    echo ''
+    exit
+}
+
+main
+

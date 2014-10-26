@@ -1,127 +1,79 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 #
-# bootstrap installs things.
+# TODO
 
 set -e
 set -x
 
+# Use the XDG convention for storing dotfiles which reduces the
+# number of config files that get symlinked to ~/.*
+DOTFILES=$HOME/.config
+DOTFILES_URL='https://github.com/neilpa/dotfiles'
+
+case $(uname -s) in
+    Darwin) OS=osx;;
+    Linux)  OS=linux;;
+esac
+
+# TODO Move this elsewhere ...
 # sudo keep-alive from https://gist.github.com/cowboy/3118588
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 main () {
-    # need command line tools before we can do anything else
-    install_devtools
-
-    # kickoff the xcode install in parallel
-    install_xcode
-
-    # next homebrew since some dotfile installers may use it
-    install_homebrew
-
-    # clone, link and install our dotfiles
-    install_dotfiles
+    download_dotfiles
+    bootstrap_platform
+    install_packages
+    link_dotfiles
 }
 
-install_devtools () {
-    info 'Installing command line tools. Expect a GUI prompt'
-    xcode-select --install
-
-    user 'Press enter to continue once installed'
-    read
-
-    info 'Command line developer tools installed at:'
-    xcode-select -p
-}
-
-install_xcode () {
-    user 'TODO install xcode'
-    read
-}
-
-
-install_homebrew () {
-    if [ -x "/usr/local/bin/brew" ]
-    then
-        info 'Homebrew already installed'
-    else
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-}
-
-link_file () {
-    #TODO Cleanup this function some
-    local src=$1 dst=$2
-    local overwrite= backup= skip=
-    local action=
-
-    if [ "$(readlink $dst)" = "$src:A" ]
-    then
-        success "$src already symlinked"
-    else
-        if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
-        then
-            user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [o]verwrite, [b]ackup?"
-            read -n 1 action
-
-            case "$action" in
-                o )
-                    overwrite=true;;
-                b )
-                    backup=true;;
-                s )
-                    skip=true;;
-                * )
-                    ;;
-            esac
-
-            if [ "$overwrite" = "true" ]
-            then
-                rm -rf "$dst"
-                success "removed $dst"
-            fi
-
-            if [ "$backup" = "true" ]
-            then
-                mv "$dst" "${dst}.backup"
-                success "moved $dst to ${dst}.backup"
-            fi
-
-            if [ "$skip" = "true" ]
-            then
-                success "skipped $src"
-            fi
-        fi
-
-        if [ "$skip" != "true" ]    # "false" or empty
-        then
-            ln -s "$1" "$2"
-            success "linked $1 to $2"
-        fi
-    fi
-
-}
-
-install_dotfiles () {
-    if [ -d $HOME/.config ]
+download_dotfiles () {
+    # Ensure our dotfiles are installed locally
+    if [ -d $DOTFILES ]
     then
         info 'Dotfiles already exist at ~/.config'
     else
+        # TODO Download from a tarball, git may not be installed yet
         info 'Cloning my dotfiles repo to ~/.config'
-        git clone 'https://github.com/neilpa/dotfiles' $HOME/.config
+        git clone $DOTFILES_URL $DOTFILES
     fi
 
-    info 'Symlinking dotfiles into ~/.*'
-    for src in $(find . -maxdepth 2 -name '*.symlink')
-    do
-        dst="$HOME/.$(basename "${src%.*}")"
-        link_file "$src" "$dst"
-    done
-
-    info 'Running dotifle installers'
-    find . -name install | while read installer ; do sh -c "${installer}" ; done
+    # TODO Do I really need this
+    cd $DOTFILES
 }
 
+bootstrap_platform () {
+    # Run the platform specific bootstrap script
+    if [ -x $DOTFILES/bootstrap-$OS ]
+    then
+        sh -c $DOTFILES/bootstrap-$OS
+    fi
+}
+
+install_packages () {
+    info 'Running dotifle installers'
+    for installer in $(find . -name "install" -o -name "install-$OS")
+    do
+        sh -c "${installer}"
+    done
+}
+
+link_dotfiles () {
+    info 'Symlinking dotfiles into ~/.*'
+    for src in $(find . -maxdepth 2 -name "*.symlink" -o -name "*.symlink-$OS")
+    do
+        dst="$HOME/.$(basename "${src%.*}")"
+        if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
+        then
+            user "File already exists: $(basename "$src"), skipping"
+        else
+            ln -s "$src" "$dst"
+            success "linked $src to $dst"
+        fi
+    done
+}
+
+# TODO Share this better
 info () {
     printf "  [ \033[00;34m..\033[0m ] $1\n"
 }
