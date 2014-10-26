@@ -1,0 +1,9 @@
+# OSX specific settings for git
+[credential]
+	helper = osxkeychain
+
+[diff]
+	tool = Kaleidoscope
+[merge]
+	tool = Kaleidoscope
+

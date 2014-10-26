@@ -1,6 +1,3 @@
-[credential]
-	helper = osxkeychain
-
 [user]
 	name = Neil Pankey
 	email = npankey@gmail.com
@@ -16,8 +13,6 @@
         cmd = "odd.exe $LOCAL $REMOTE"
 [difftool]
 	prompt = false
-[diff]
-	tool = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
@@ -25,8 +20,6 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
-[merge]
-	tool = Kaleidoscope
 
 [alias]
 	co = checkout
