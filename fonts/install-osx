@@ -1,0 +1,5 @@
+#/bin/sh
+
+mkdir -p ~/Library/Fonts
+cp -nv **/*.ttf ~/Library/Fonts/
+
