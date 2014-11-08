@@ -43,6 +43,10 @@ Plug 'toyamarinyon/vim-swift'
 " Rust files
 Plug 'wting/rust.vim'
 
+" Light-weight but fancy status line
+Plug 'itchyny/lightline.vim'
+let g:lightline = { 'colorscheme': 'wombat' }
+
 "Only need powershell plugins on Windows
 if has("win32")
     Plug 'PProvost/vim-ps1'
@@ -136,7 +140,7 @@ else
 endif
 
 "Nice looking status line that's always visible
-set statusline=%f\ [%Y%M%R]\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n%=[%b][0x%B]
+"set statusline=%f\ [%Y%M%R]\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n%=[%b][0x%B]
 set laststatus=2
 
 "Servername and current directory in the title string
