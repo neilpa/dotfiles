@@ -21,6 +21,9 @@
 	prompt = false
 	keepBackup = false
 
+[rerere]
+	enabled = 1
+
 [alias]
 	co = checkout
 	ci = commit
