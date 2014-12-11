@@ -1,3 +1,5 @@
+# Source https://github.com/builddoctor/maven-antsy-color
+#
 # thanks to:  http://blog.blindgaenger.net/colorize_maven_output.html
 # and: http://johannes.jakeapp.com/blog/category/fun-with-linux/200901/maven-colorized
 # Colorize Maven Output
