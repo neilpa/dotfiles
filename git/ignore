@@ -42,3 +42,5 @@ xcuserdata
 # just treat the pbxproj file as binary: don't show the diff, don't try to merge
 *.pbxproj -crlf -diff -merge
 
+# carthage
+Carthage/Build
