@@ -39,6 +39,9 @@
 
 	dw = diff --word-diff
 
+	current-branch = symbolic-ref --short HEAD
+	cb = !git current-branch
+
 	graph = log --graph --abbrev-commit --decorate
 	lgf1 = !"git graph --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 	lgf2 = !"git graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
@@ -47,7 +50,7 @@
 	lg1 = !"git lgf1 --tags"
 	lg2 = !"git lgf2 --tags"
 	lg3 = !"git lgf3 --tags"
-	lg = !"git lg1"
+	lg = !"git lg1 $(git current-branch)"
 	ahead = !"git lg1 --branches --not --remotes"
 
 	rm-ignored = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
