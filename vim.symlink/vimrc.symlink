@@ -51,6 +51,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 let g:lightline = { 'colorscheme': 'wombat' }
 
+" QuickFix files => :args (e.g. search/replace helper w/ vimgrep)
+" http://stackoverflow.com/questions/5686206/search-replace-using-quickfix-list-in-vim/5686810#5686810
+Plug 'nelstrom/vim-qargs'
+
 "Only need powershell plugins on Windows
 if has("win32")
     Plug 'PProvost/vim-ps1'
