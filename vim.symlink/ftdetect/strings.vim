@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.strings set filetype=json
+"au BufNewFile,BufRead *.strings set filetype=json
