@@ -55,6 +55,9 @@ let g:lightline = { 'colorscheme': 'wombat' }
 " http://stackoverflow.com/questions/5686206/search-replace-using-quickfix-list-in-vim/5686810#5686810
 Plug 'nelstrom/vim-qargs'
 
+" Exploding Unicode escape sequences to literals
+Plug 'neilpa/vim-uniliteral'
+
 "Only need powershell plugins on Windows
 if has("win32")
     Plug 'PProvost/vim-ps1'
