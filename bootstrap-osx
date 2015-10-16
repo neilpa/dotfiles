@@ -2,8 +2,8 @@
 #
 # TODO
 
-set -e
-set -x
+#set -e
+#set -x
 
 main () {
     # need command line tools before we can do anything else
