@@ -5,14 +5,14 @@ Started as a fork of [Zach Holman's dotfiles](https://github.com/holman/dotfiles
 Run this:
 
 ```sh
-DOTFILES=~/.config
-git clone https://github.com/neilpa/dotfiles.git $DOTFILES
-cd ~/.config
+cd ~/
+git clone https://github.com/neilpa/dotfiles.git .config
+cd .config/
 ./bootstrap
 ```
 
-This will symlink the appropriate files in `$DOTFILES` to your home directory.
-Everything is configured and tweaked within `$DOTFILES`.
+This will symlink the appropriate files in `~/.config` to your home directory.
+Everything is configured and tweaked within `~/.config`.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
