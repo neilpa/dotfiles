@@ -1,0 +1,2 @@
+% http://stackoverflow.com/a/21056414/1999152
+setenv("GNUTERM","qt")
