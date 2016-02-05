@@ -6,6 +6,8 @@
 	default = simple
 [pull]
 	rebase = preserve
+[fetch]
+	prune = true
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
@@ -23,6 +25,7 @@
 
 [rerere]
 	enabled = 1
+
 
 [url "https://github.com/"]
 	insteadOf = git://github.com/
