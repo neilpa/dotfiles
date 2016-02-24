@@ -44,6 +44,9 @@ Plug 'lambdatoast/elm.vim'
 " Rust files
 Plug 'wting/rust.vim'
 
+" Puppet files
+Plug 'rodjek/vim-puppet'
+
 " Git
 Plug 'tpope/vim-fugitive'
 
