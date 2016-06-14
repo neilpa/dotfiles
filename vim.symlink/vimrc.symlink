@@ -41,13 +41,14 @@ Plug 'tfnico/vim-gradle'
 Plug 'toyamarinyon/vim-swift'
 Plug 'lambdatoast/elm.vim'
 
-" Rust files
+" File types/languages
 Plug 'wting/rust.vim'
-
-" Puppet files
+Plug 'fatih/vim-go'
 Plug 'rodjek/vim-puppet'
+Plug 'udalov/kotlin-vim'
+Plug 'stephpy/vim-yaml'
 
-" Git
+" git integration
 Plug 'tpope/vim-fugitive'
 
 " Light-weight but fancy status line
