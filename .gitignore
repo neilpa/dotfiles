@@ -8,3 +8,12 @@ vim.symlink/view
 
 # github/hub creds
 /hub
+
+# gradle turds
+gradle.symlink/caches/
+gradle.symlink/daemon/
+gradle.symlink/native/
+gradle.symlink/wrapper/
+
+# yoeman
+/configstore/
