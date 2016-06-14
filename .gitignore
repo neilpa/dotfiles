@@ -2,5 +2,9 @@
 vim.symlink/autoload/plug.vim
 vim.symlink/plugged/
 
+# other vim things to not sync
+vim.symlink/spell
+vim.symlink/view
+
 # github/hub creds
 /hub
