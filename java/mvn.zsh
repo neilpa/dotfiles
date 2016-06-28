@@ -1,9 +1,12 @@
+# Re-export the raw command since the color_maven behaves poorly
+# with interactive maven commands.
+alias maven="command mvn"
+
 # Source https://github.com/builddoctor/maven-antsy-color
 #
 # thanks to:  http://blog.blindgaenger.net/colorize_maven_output.html
 # and: http://johannes.jakeapp.com/blog/category/fun-with-linux/200901/maven-colorized
 # Colorize Maven Output
-alias maven="command mvn"
 function color_maven() {
     local BLUE="[0;34m"
     local RED="[0;31m"
@@ -26,3 +29,4 @@ function color_maven() {
 }
 
 alias mvn=color_maven
+
