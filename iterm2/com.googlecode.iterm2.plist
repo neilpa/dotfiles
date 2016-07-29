@@ -391,6 +391,8 @@
 	<false/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Documents</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
+	<string>{712, 565}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -408,18 +410,32 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>319</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>306 319 924 485 0 0 1440 878 </string>
+	<string>39 1663 924 485 -568 900 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>595 121 570 706 0 0 1440 878 </string>
+	<string>687 167 675 706 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>210 206 927 672 0 0 1440 878 </string>
+	<string>198 109 1207 655 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>1 424 570 451 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>596 12 836 859 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>11 51 570 791 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>97 11 1117 859 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>1106 1517 585 451 -568 900 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>363 1478 585 451 -568 900 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>162 11 1026 859 0 0 1440 877 </string>
 	<key>NeverWarnAboutPossibleOverrides</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1150,8 +1166,12 @@
 			<string>/Users/neilpa</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncTimeOfLastPromo</key>
+	<real>477616343.726408</real>
+	<key>NoSyncTimeOfLastPromoDownload</key>
+	<real>487547138.83385098</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1160,6 +1180,8 @@
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PassOnControlClick</key>
 	<false/>
 	<key>PasteFromClipboard</key>
@@ -1210,11 +1232,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-07-03T20:41:57Z</date>
+	<date>2016-06-15T04:22:16Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1248,7 +1270,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.AppleSystemUIFont</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
@@ -1260,6 +1282,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140518</string>
+	<string>2.1.4</string>
 </dict>
 </plist>
