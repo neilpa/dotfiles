@@ -30,3 +30,5 @@ function color_maven() {
 
 alias mvn=color_maven
 
+# TODO Move this to a function
+mvn-set-version() { mvn versions:set -DgenerateBackupPoms=false -DnewVersion=$1 }
