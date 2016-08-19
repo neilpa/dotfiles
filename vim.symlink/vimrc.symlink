@@ -331,6 +331,13 @@ autocmd CmdwinEnter * startinsert
 "    \   setlocal laststatus=0
 "    \ endif
 
+" Disable syntax highlighting when opening large (>10MB) files
+" http://stackoverflow.com/a/179103/1999152
+autocmd BufReadPre *
+    \ if getfsize(expand("%")) > 10000000 |
+    \   syntax off |
+    \ endif
+
 augroup END
 
 
