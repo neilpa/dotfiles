@@ -38,13 +38,15 @@
 	st = status --short --branch
 	stat = status
 
-	d = difftool HEAD
-	dt = difftool
-	dc = difftool --cached
-	dh = difftool HEAD
-	d1 = difftool HEAD~1
-
+	d = diff
+	dh = diff HEAD
+	dh1 = diff HEAD~1
 	dw = diff --word-diff
+
+	dt = difftool
+	dtc = difftool --cached
+	dth = difftool HEAD
+	dth1 = difftool HEAD~1
 
 	current-branch = symbolic-ref --short HEAD
 	cb = !git current-branch
