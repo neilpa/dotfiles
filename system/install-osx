@@ -85,8 +85,10 @@ defaults write com.apple.Finder FXPreferredViewStyle Clmv
 defaults write com.apple.finder AppleShowAllExtensions -bool true
 # Disable extension change warning
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# Show all hidden files
+defaults write com.apple.finder.AppleShowAllFiles -bool true
 
-# Show the ~/Library folder.
+# Change the ~/Library folder to not hidden
 chflags nohidden ~/Library
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
