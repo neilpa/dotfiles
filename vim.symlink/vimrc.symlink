@@ -62,6 +62,9 @@ Plug 'nelstrom/vim-qargs'
 " Exploding Unicode escape sequences to literals
 Plug 'neilpa/vim-uniliteral'
 
+" Increment a visual block of numbers
+Plug 'triglav/vim-visual-increment'
+
 "Only need powershell plugins on Windows
 if has("win32")
     Plug 'PProvost/vim-ps1'
@@ -215,6 +218,13 @@ set autowrite
 "No annoying backup or swap files
 set nobackup
 set noswapfile
+
+"Printing (e.g. :<range>hardcopy)
+"TODO Should scope this per device and document type
+set printoptions=duplex:long "double sided by default
+set printoptions+=paper:letter "murica
+set printoptions+=header:0 "no header (useful for RFCs)
+set printoptions+=formfeed:y "respect page breaks (useful for RFCs)
 
 "==========================================================================
 " Key Mappings
