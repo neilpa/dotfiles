@@ -42,6 +42,9 @@ install_homebrew () {
     fi
 
     brew analytics off
+
+    # For app packages
+    brew tap caskroom/cask
 }
 
 info () {
