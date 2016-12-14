@@ -2,7 +2,7 @@
 #
 # Settings grabbed from multiple sources
 #
-#   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #   https://gist.github.com/brandonb927/3195465
 #
 
@@ -40,7 +40,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Turn off keyboard illumination when computer is not used for 5 minutes
-defaults write com.apple.BezelServices kDimTime -int 300
+#defaults write com.apple.BezelServices kDimTime -int 300
 
 # Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -49,7 +49,8 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain com.apple.keyboard.fnState -int 1
 
 # Disable "natural" scrolling on the trackpad
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+# TODO Not sure which one I like anymore
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 
 #
