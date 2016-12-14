@@ -1,1 +1,1 @@
-echo TODO-install-slack
+brew cask install slack
