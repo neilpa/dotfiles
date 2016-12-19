@@ -14,7 +14,7 @@ setlocal formatoptions=wan
 " http://stackoverflow.com/a/21610187/1999152
 setlocal formatlistpat=^\s*\d\+\.\s\+\|^[-*+]\s\+
 
-" Ensure single space after periouds, et al.
+" Ensure single space after periods, et al.
 setlocal nojoinspaces
 
 " Need me some spell check when writing
