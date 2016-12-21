@@ -35,6 +35,7 @@
 	stat = status
 
 	d = diff
+	dc = diff --cached
 	dh = diff HEAD
 	dh1 = diff HEAD~1
 	dw = diff --word-diff
