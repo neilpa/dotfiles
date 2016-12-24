@@ -94,9 +94,9 @@ set nomodeline
 "Can't live without syntax highlighting
 syntax on
 
-"Tomorrow Night Eighties has grown on me
+"Still searching for the one true color scheme
 set background=dark
-silent! colorscheme Tomorrow-Night-Eighties
+silent! colorscheme Tomorrow-Night-Bright
 
 "Keep cursor from screen top/bottom
 set scrolloff=3

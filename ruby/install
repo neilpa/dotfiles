@@ -2,7 +2,6 @@
 
 main () {
     install_rbenv
-    install_gems
 }
 
 install_rbenv () {
@@ -19,14 +18,6 @@ install_rbenv () {
 
         rbenv install 2.1.3
     fi
-}
-
-install_gems () {
-    while read gem; do
-        gem install $gem
-    done < "${0%/*}/gems"
-
-    rbenv rehash
 }
 
 main

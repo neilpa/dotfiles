@@ -1,0 +1,5 @@
+brew cask install alfred
+
+# TODO Figure out how to change the default key-combo
+
+# TODO Requires turning on accessibility manually so it works

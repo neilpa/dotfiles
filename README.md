@@ -1,18 +1,13 @@
-Started as a fork of [Zach Holman's dotfiles](https://github.com/holman/dotfiles) which was itself a fork of [Ryan Bate's dotfiles](http://github.com/ryanb/dotfiles). Things are still in flux and I expect more changes. (TODO Better description of the dotfiles than the cursory update that's been done).
+# dotfiles
+
+Started as a fork of [Zach Holman's dotfiles](https://github.com/holman/dotfiles)
+which was itself a fork of [Ryan Bate's dotfiles](http://github.com/ryanb/dotfiles).
 
 ## install
 
-Run this:
+Clone the repo and run the `bootstrap` script
 
-```sh
-cd ~/
-git clone https://github.com/neilpa/dotfiles.git .config
-cd .config/
-./bootstrap
-```
-
-This will symlink the appropriate files in `~/.config` to your home directory.
-Everything is configured and tweaked within `~/.config`.
+This will symlink the appropriate files to your home directory.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
