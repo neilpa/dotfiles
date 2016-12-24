@@ -43,3 +43,8 @@ do
 done
 
 unset config_files
+
+# Timestamps the way I like them
+alias now='date +"[%Y-%m-%d %H:%M:%S"]'
+alias nowz='date +"[%Y-%m-%d %H:%M:%S %z"]'
+
