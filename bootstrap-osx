@@ -37,8 +37,14 @@ install_homebrew () {
     then
         info 'Homebrew already installed'
     else
+    	# TODO Install via git-clone instead
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
+
+    brew analytics off
+
+    # For app packages
+    brew tap caskroom/cask
 }
 
 info () {
