@@ -1,3 +1,7 @@
+[user]
+	name = Neil Pankey
+	email = npankey@gmail.com
+
 # OSX specific settings for git
 [credential]
 	helper = osxkeychain
