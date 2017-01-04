@@ -47,4 +47,5 @@ unset config_files
 # Timestamps the way I like them
 alias now='date +"[%Y-%m-%d %H:%M:%S"]'
 alias nowz='date +"[%Y-%m-%d %H:%M:%S %z"]'
+alias stamp='date +"[%Y%m%d%_H%M%S%z"]'
 

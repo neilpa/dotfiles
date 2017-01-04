@@ -1,2 +1,2 @@
-alias ag='rg'
-alias ai='rg -i'
+#alias ag='rg'
+#alias ai='rg -i'
