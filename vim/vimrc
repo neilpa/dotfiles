@@ -1,76 +1,27 @@
 "==========================================================================
 " Environment
 "==========================================================================
-"
+
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+
 " Obviously want all possible Vim features
 set nocompatible
 
-" Generally the users vimfile directory should be the first value
-" on Vim's runtime path
-let $VIMHOME = expand(split(&rtp, ',')[0])
-
-"==========================================================================
-" Plugin Management
-"==========================================================================
-
-" Bootstrap vim-plug install
-if empty(glob("$VIMHOME/autoload/plug.vim"))
-    echo "Downloading vim-plug"
-    if has("unix")
-        silent !mkdir -p $VIMHOME/autoload
-        silent !curl -fLSs -o $VIMHOME/autoload/plug.vim
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall
-    endif
-    " TODO Windows
-endif
-
-"Load vim-plug
-call plug#begin()
-
-" All my plugins
-" Plug 'Valloric/YouCompleteMe'
-
 " The colors Duke, the colors!
-Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'vim-scripts/peaksea'
-
-" Extra syntax highlighting
-Plug 'tfnico/vim-gradle'
-Plug 'toyamarinyon/vim-swift'
-Plug 'lambdatoast/elm.vim'
+"Plug 'altercation/vim-colors-solarized'
 
 " File types/languages
-Plug 'wting/rust.vim'
-Plug 'fatih/vim-go'
-Plug 'rodjek/vim-puppet'
-Plug 'udalov/kotlin-vim'
-Plug 'stephpy/vim-yaml'
-
-" git integration
-Plug 'tpope/vim-fugitive'
-
-" Light-weight but fancy status line
-Plug 'itchyny/lightline.vim'
-let g:lightline = { 'colorscheme': 'wombat' }
-
-" QuickFix files => :args (e.g. search/replace helper w/ vimgrep)
-" http://stackoverflow.com/questions/5686206/search-replace-using-quickfix-list-in-vim/5686810#5686810
-Plug 'nelstrom/vim-qargs'
+"Plug 'wting/rust.vim'
+"Plug 'fatih/vim-go'
+"Plug 'rodjek/vim-puppet'
+"Plug 'udalov/kotlin-vim'
+"Plug 'stephpy/vim-yaml'
 
 " Exploding Unicode escape sequences to literals
-Plug 'neilpa/vim-uniliteral'
+"Plug 'neilpa/vim-uniliteral'
 
 " Increment a visual block of numbers
-Plug 'triglav/vim-visual-increment'
-
-"Only need powershell plugins on Windows
-if has("win32")
-    Plug 'PProvost/vim-ps1'
-endif
-
-call plug#end()
+"Plug 'triglav/vim-visual-increment'
 
 "==========================================================================
 " VIM User Interface
