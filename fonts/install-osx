@@ -1,4 +1,0 @@
-#/bin/sh
-
-mkdir -p ~/Library/Fonts
-cp -nv fonts/*/*.ttf ~/Library/Fonts/ || true
