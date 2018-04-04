@@ -1,5 +1,8 @@
 #!/bin/sh
+set -u
 
-set -eu
-
-mv -i ./home/.* ${HOME}
+cd home
+for f in *
+do
+    cp -v -i "$f" "${HOME}/.$f"
+done

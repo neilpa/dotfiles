@@ -1,0 +1,23 @@
+alias la='ls -laFo'
+alias ll='ls -lFo'
+
+# set prompt: ``username@hostname pwd$ ''
+# TODO unclear if these escapes are universal
+PS1="\u@\h \W \$ "
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias gob='go build'
+alias got='go test'
+alias gor='go run'
+
+# Dump a man page and cleanup formatting
+man-cat() {
+	man -P cat "$@" | col -b
+}
+
+if [ -f $HOME/.localrc ]; then
+	. $HOME/.localrc
+fi
