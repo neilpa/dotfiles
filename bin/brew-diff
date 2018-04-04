@@ -1,8 +1,0 @@
-#!/bin/bash
-#
-# Figure out what was installed manually but hasn't been added
-# to my dotfile list of taps, formulas or casks
-
-diff <(brew tap) $ZSH/homebrew/taps
-diff <(brew leaves) <(cut -d ' ' -f1 $ZSH/homebrew/formulas)
-diff <(brew cask list) $ZSH/homebrew/casks
