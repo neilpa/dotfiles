@@ -1,0 +1,13 @@
+# This file _should_ be sourced by .bash_profile
+
+test -f ~/.shrc && source ~/.shrc
+
+# Ensure XDG directories are defined
+[ -n $XDG_CONFIG_HOME ] || export XDG_CONFIG_HOME="$HOME/.config"
+[ -n $XDG_CACHE_HOME ] || export XDG_CACHE_HOME="$HOME/.cache"
+
+export EDITOR='vim'
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+# Mac specifics
+export HOMEBREW_NO_ANALYTICS=1

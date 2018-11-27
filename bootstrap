@@ -1,8 +1,0 @@
-#!/bin/sh
-set -u
-
-cd home
-for f in *
-do
-    cp -v -i "$f" "${HOME}/.$f"
-done
