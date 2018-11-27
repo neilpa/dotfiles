@@ -1,9 +1,19 @@
+# set prompt: ``pwd $ ''
+PS1="\w \$ "
+
+# Uncomment this to enable the builtin vi(1) command line editor in sh(1),
+# e.g. ESC to go into visual mode.
+# set -o vi
+
+# some useful (default) aliases
+alias h='fc -l'
+alias j=jobs
+alias m="$PAGER"
+alias l='ls -l'
+alias g='egrep -i'
+ 
 alias la='ls -laFo'
 alias ll='ls -lFo'
-
-# set prompt: ``username@hostname pwd$ ''
-# TODO unclear if these escapes are universal
-PS1="\u@\h \W \$ "
 
 alias ..='cd ..'
 alias ...='cd ../..'
