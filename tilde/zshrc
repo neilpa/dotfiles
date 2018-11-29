@@ -1,0 +1,39 @@
+# shared portable settings
+source ${HOME}/.shrc
+
+# never play the beep
+unsetopt BEEP
+
+# simple prompt with `~`-relative path
+PS1="%~ %# "
+
+# even as a vim user, still used to the standard readline keybindings
+bindkey -e
+
+# large set of history, and continually append
+HISTFILE=~/.cache/zsh/histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt EXTENDED_HISTORY # add timestamps to history
+setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt HIST_IGNORE_SPACE # don't write space prefixed commands to the history file
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY # add history immediately rather than at shell exit
+setopt SHARE_HISTORY # share history between sessions
+
+# saner color switching rather than the nasty escape codes
+# https://wiki.archlinux.org/index.php/zsh#Colors
+autoload -U colors
+colors
+
+# bulk file renaming
+# https://github.com/zsh-users/zsh/blob/master/Functions/Misc/zmv
+autoload zmv
+alias mmv='noglob -W zmv'
+
+# initalize autocomplete
+autoload -Uz compinit
+compinit
+#zstyle ':completion:*' completer _complete _ignored
+#zstyle :compinstall filename '/home/neilpa/.zshrc'
+
