@@ -1,14 +1,16 @@
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
 
-# Uncomment this to enable the builtin vi(1) command line editor in sh(1),
-# e.g. ESC to go into visual mode.
-# set -o vi
+# some basics
+export EDITOR=vim
+export PAGER=less
+
+export LSCOLORS=exfxcxdxbxegedabagacad
+export CLICOLOR=true
 
 # some useful (default) aliases
 alias h='fc -l'
 alias j=jobs
-alias m="$PAGER"
 alias l='ls -l'
 alias g='egrep -i'
  
@@ -27,7 +29,3 @@ alias gor='go run'
 man-cat() {
 	man -P cat "$@" | col -b
 }
-
-if [ -f $HOME/.localrc ]; then
-	. $HOME/.localrc
-fi
