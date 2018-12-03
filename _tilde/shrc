@@ -1,0 +1,43 @@
+# set prompt: ``pwd $ ''
+PS1="\w \$ "
+
+# ensure XDG directories are defined
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# less is more
+export PAGER=less
+# don't need a less history file
+export LESSHIST=/dev/null
+
+# https://tlvince.com/vim-respect-xdg
+# set vimrc's location and source it on vim startup
+export EDITOR=vim
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+# colorful outputs
+# TODO should check for color terminal
+export CLICOLOR=true
+export LSCOLORS=exfxcxdxbxegedabagacad
+
+# some useful (default) aliases
+alias h='fc -l'
+alias j=jobs
+alias l='ls -l'
+alias g='egrep -i'
+ 
+alias la='ls -laFo'
+alias ll='ls -lFo'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias gob='go build'
+alias got='go test'
+alias gor='go run'
+
+# dump a man page to the terminal and cleanup formatting
+man-cat() {
+	man -P cat "$@" | col -b
+}
