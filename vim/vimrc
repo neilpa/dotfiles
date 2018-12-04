@@ -5,12 +5,21 @@
 " Respect XDG as best as possible
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+
 " And simply disable backups and swap files
 set nobackup
 set noswapfile
 
 " Obviously want all possible Vim features
 set nocompatible
+
+"==========================================================================
+" Plugins
+"==========================================================================
+
+" No more .netwrhist turds
+" Not sure why this isn't working...
+"let g:netwr_home = $XDG_CONFIG_HOME . "/vim/netrw"
 
 " The colors Duke, the colors!
 "Plug 'altercation/vim-colors-solarized'
