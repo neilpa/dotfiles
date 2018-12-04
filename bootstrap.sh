@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-cd "${HOME}/.config/_tilde"
+cd "${HOME}/.config/turds"
 for f in *
 do
     # Test for existing hardlinks

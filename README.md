@@ -8,7 +8,7 @@ git clone https://github.com/neilpa/dotfiles ~/.config
 ~/.config/bootstrap.sh
 ```
 
-The `bootstrap.sh` script hardlinks files in `_tilde` to `~`, prefixing with a
+The `bootstrap.sh` script hardlinks files in `turds` to `~`, prefixing with a
 dot. Everything else _should_ work as-is assuming conformance to XDG config.
 
 ## shells
