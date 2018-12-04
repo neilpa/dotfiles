@@ -1,3 +1,7 @@
+[user]
+email = npankey@gmail.com
+	name = Neil Pankey
+
 [push]
 	default = simple
 [pull]
