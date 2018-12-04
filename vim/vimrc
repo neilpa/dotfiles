@@ -2,7 +2,12 @@
 " Environment
 "==========================================================================
 
+" Respect XDG as best as possible
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+" And simply disable backups and swap files
+set nobackup
+set noswapfile
 
 " Obviously want all possible Vim features
 set nocompatible
@@ -78,15 +83,6 @@ set wildmenu        " ... show all matches in status bar
 "TODO get this setup better
 set complete-=i     "searching include files is too slow because of precomp's
 
-"Show non-printable characters (hl-SpecialKey)
-set listchars=tab:»·
-if has("win32")
-    set listchars+=trail:•
-else
-    set listchars+=trail:.
-endif
-set list
-
 "Turn off line wrapping
 "set nowrap
 "set listchars+=extends:>,precedes:<
@@ -98,7 +94,6 @@ set incsearch       "find as you type
 set nohlsearch      "highlighted search terms are annoying
 set magic           "use 'magic' patterns (extended regular expressions).
 set mmp=25000       "more memory for pattern matching (25MB)
-"set nowrapscan     "don't wrap search at top/bottom of file
 
 "TODO: These don't work quite the way I like
 "Searcing outside of Vim
@@ -113,7 +108,7 @@ endif
 set laststatus=2
 
 "Servername and current directory in the title string
-set titlestring=%{strpart(v:servername,1)}\ \ %{getcwd()}
+"set titlestring=%{strpart(v:servername,1)}\ \ %{getcwd()}
 
 "Reduce hit-enter prompts
 set shortmess=atT   "shorten and truncate as necessary
@@ -166,10 +161,6 @@ set autoread
 "Write changes when running special commands (:make, !, etc.)
 set autowrite
 
-"No annoying backup or swap files
-set nobackup
-set noswapfile
-
 "Printing (e.g. :<range>hardcopy)
 "TODO Should scope this per device and document type
 set printoptions=duplex:long "double sided by default
@@ -205,19 +196,13 @@ vmap <C-P> "*p
 cmap <C-P> <C-R>*
 
 "Disable pasting with middle mouse click (double click still pastes)
-map <MiddleMouse> <Nop>
-imap <MiddleMouse> <Nop>
+"map <MiddleMouse> <Nop>
+"imap <MiddleMouse> <Nop>
 
 "TODO: Something better for this and for Backspace
 "Easy page-up/down without moving my fingers
 noremap <Space> <PageDown>
 noremap <S-Space> <PageUp>
-
-" scroll the window (but leaving the cursor in the same place) by a couple of
-" lines up/down with <Ins>/<Del> (like in `Lynx'):
-"noremap <Ins> 2<C-Y>
-"noremap <Del> 2<C-E>
-" [<Ins> by default is like i, and <Del> like x.]
 
 "Quickly move between windows
 "TODO should these use <Leader>?
@@ -231,18 +216,6 @@ nmap <Leader>f <ESC>:find<SPACE>
 
 "Change CWD to that of current file
 map <Leader>cdd <ESC>:cd %:p:h<CR>
-
-"Fast editing of vimrc and vim files
-if has("win32")
-    map <Leader>vrc :e! ~/_vimrc<cr>
-    map <Leader>vim :cd! ~/vimfiles<cr>
-else
-    map <Leader>vrc :e! ~/.vimrc<cr>
-    map <Leader>vim :cd! ~/.vim<cr>
-endif
-
-"Fast editing of autohotkey script
-"map <Leader>ahk :e! c:\tools\ahk\base.ahk
 
 " Pull word under cursor into LHS of a substitute
 nmap <Leader>z :%s#\<<c-r>=expand("<cword>")<cr>\>#
@@ -341,10 +314,6 @@ cabbrev q1 q!
 " Helper Functions
 "==========================================================================
 
-function! AsyncCmd(cmd)
-    exe "silent !start " . a:cmd
-endfunction
-
 "Deletes trailing whitespace, saves cursor pos and last search
 function! RemoveWhitespace()
     if &bin | return | endif
@@ -352,15 +321,4 @@ function! RemoveWhitespace()
     silent %s/\s\+$//ge
     call cursor(line, col) | let @/ = srch
 endfunction
-
-"==========================================================================
-" Miscellaneous
-"==========================================================================
-
-"Machine specific additions/overrides
-if has("win32")
-    exec "runtime " . expand('$COMPUTERNAME') . ".vim"
-else
-    exec "runtime " . expand('$HOSTNAME') . ".vim"
-endif
 
