@@ -10,9 +10,6 @@ set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set nobackup
 set noswapfile
 
-" Obviously want all possible Vim features
-set nocompatible
-
 "==========================================================================
 " Plugins
 "==========================================================================
@@ -40,6 +37,9 @@ set nocompatible
 "==========================================================================
 " VIM User Interface
 "==========================================================================
+
+" Obviously want all possible Vim features
+set nocompatible
 
 "Have Vim rememember lots of commands
 set history=75
@@ -91,10 +91,6 @@ set wildmenu        " ... show all matches in status bar
 "Insert completion
 "TODO get this setup better
 set complete-=i     "searching include files is too slow because of precomp's
-
-"Turn off line wrapping
-"set nowrap
-"set listchars+=extends:>,precedes:<
 
 "Searching tweaks
 set ignorecase      "case insensetive searching
