@@ -41,3 +41,9 @@ alias gor='go run'
 man-cat() {
 	man -P cat "$@" | col -b
 }
+
+# split a large (>4GB) file in parts for saving to a FAT32 drive
+#   split-fat32 /path/to/large.tar.gz /mnt/large.tar.gz.
+split-fat32() {
+    split -d -b 4294967295 "$@"
+}
