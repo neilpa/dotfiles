@@ -1,14 +1,7 @@
 # .profile is invoked by some Bourne-compatible shells for login sessions.
 
 # set ENV to a file invoked each time sh is started for interactive use.
-case `basename $SHELL` in
-  # failed attempt at mkshrc...
-  mksh) ENV=$HOME/.mkshrc
-    ;;
-  *) ENV=$HOME/.shrc
-    ;;
-esac
-export ENV
+ENV=$HOME/.shrc
 
 # Display a random cookie on each login.
 if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
