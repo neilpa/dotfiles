@@ -3,8 +3,9 @@
 "==========================================================================
 
 " Respect XDG as best as possible
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIM,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set packpath=$XDG_CONFIG_HOME/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$XDG_CONFIG_HOME/vim/after
 
 " And simply disable backups and swap files
 set nobackup
