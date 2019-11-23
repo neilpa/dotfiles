@@ -74,7 +74,7 @@ set scrolloff=3
 set lazyredraw
 
 "Show line numbers
-"set number
+set number
 
 "Make arrow keys wrap at start/end of lines
 set whichwrap+=>,<,],[
@@ -130,7 +130,7 @@ set visualbell
 set t_vb=
 
 "Disable code folding
-set nofoldenable
+"set nofoldenable
 
 "Use an I-beam cursor for insert mode - this at least works with iTerm
 "http://code.google.com/p/iterm2/wiki/ProprietaryEscapeCodes
@@ -253,9 +253,9 @@ autocmd!
 
 "When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \     exe "normal! g`\"" |
+    \ endif
 
 "Use template files if they exist
 autocmd BufNewFile *
@@ -280,6 +280,18 @@ autocmd BufReadPre *
     \ if getfsize(expand("%")) > 10000000 |
     \   syntax off |
     \ endif
+
+" Ensure the containing directory exists before writing
+" Useful when doing `vim some/new/dir/file.txt`
+"
+" https://vi.stackexchange.com/a/679
+autocmd BufWritePre *
+  \ if !isdirectory(expand("<afile>:p:h")) |
+  \     call mkdir(expand("<afile>:p:h"), "p") |
+  \ endif
+
+" Persitent folds between Vim Sessions
+" https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 
 augroup END
 
