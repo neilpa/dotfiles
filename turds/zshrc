@@ -3,15 +3,14 @@ source ${HOME}/.shrc
 
 # simple prompt with host and `~`-relative path
 PS1="%m:%~ %# "
+# no machine name
+PS1="%~ %# "
 
 # never play the beep
 unsetopt BEEP
 
 # even as a vim user, still used to the standard readline keybindings
 bindkey -e
-
-# never play the beep
-unsetopt BEEP
 
 # respect XDG
 ZCACHE=$XDG_CACHE_HOME/zsh
@@ -46,3 +45,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
+# rbenv crap
+export PATH="${HOME}/.rbenv/shims:${PATH}"
+export RBENV_SHELL=zsh
+source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh'
+command rbenv rehash 2>/dev/null
+
+# NVM crap
+export NVM_DIR="$HOME/.nvm"
+# This loads nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+# This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"

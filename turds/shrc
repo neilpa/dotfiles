@@ -1,6 +1,8 @@
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
 
+export PATH="$PATH:$HOME/bin:$HOME/go/bin"
+
 # ensure XDG directories are defined
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -27,7 +29,7 @@ alias l='ls -l'
 alias g='egrep -i'
  
 alias la='ls -laFo'
-alias ll='ls -lFo'
+alias ll='ls -lFh'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -69,3 +71,4 @@ timestamp() {
     date -u +%F_%T
 }
 
+. /usr/local/etc/profile.d/z.sh
