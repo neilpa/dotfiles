@@ -9,6 +9,3 @@ case `basename $SHELL` in
     ;;
 esac
 export ENV
-
-# Display a random cookie on each login.
-if [ -x /usr/bin/fortune ] ; then /usr/bin/fortune freebsd-tips ; fi
