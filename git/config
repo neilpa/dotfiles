@@ -1,5 +1,5 @@
 [user]
-email = npankey@gmail.com
+	email = npankey@gmail.com
 	name = Neil Pankey
 
 [push]
@@ -11,12 +11,13 @@ email = npankey@gmail.com
 
 [diff]
 	indentHeuristic = true
+	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 
-[mergetool "Kaleidoscope"]
+[merge.tool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [mergetool]
@@ -31,7 +32,7 @@ email = npankey@gmail.com
 	ci = commit
 
 	st = status --short --branch
-	stat = status
+	conflicts = diff --name-only --diff-filter=U
 
 	d = diff
 	dc = diff --cached
@@ -50,9 +51,6 @@ email = npankey@gmail.com
 	blog = for-each-ref --sort=committerdate refs/heads/ --format='%(color:red)%(objectname:short)%(color:reset)%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
 	graph = log --graph --abbrev-commit --decorate
-	lgf1 = !"git graph --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
-	lgf2 = !"git graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
-	lgf3 = log --graph --format=format:'%C(bold blue)%h %Creset%an %C(bold green)(%ar) %C(yellow)%d%n        %Creset%s%n'
 
 	lg1 = !"git lgf1 --tags"
 	lg2 = !"git lgf2 --tags"
