@@ -259,10 +259,10 @@ autocmd BufReadPost *
 
 "Use template files if they exist
 autocmd BufNewFile *
-    \ if filereadable("$HOME/vimfiles/templates/%:t") |
-    \   keepalt 0r ~/vimfiles/templates/%:t |
+    \ if filereadable(expand("$XDG_CONFIG_HOME/vim/templates/") . expand("%:t")) |
+    \   keepalt 0r $XDG_CONFIG_HOME/vim/templates/%:t |
     \ else |
-    \   silent! keepalt 0r ~/vimfiles/templates/skel.%:e |
+    \   silent! keepalt 0r $XDG_CONFIG_HOME/vim/templates/skel.%:e |
     \ endif
 
 " Start cmdwindow (q: or q/) in insert mode.
@@ -294,7 +294,6 @@ autocmd BufWritePre *
 " https://til.hashrocket.com/posts/17c44eda91-persistent-folds-between-vim-sessions
 
 augroup END
-
 
 "==========================================================================
 " Abbreviations
