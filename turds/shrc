@@ -1,11 +1,11 @@
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
 
-export PATH="$PATH:$HOME/bin:$HOME/go/bin"
-
 # ensure XDG directories are defined
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+export PATH="$HOME/bin:$HOME/go/bin:$XDG_CONFIG_HOME/bin:$PATH"
 
 # less is more
 export PAGER=less
