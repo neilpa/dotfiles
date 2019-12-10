@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Uses ImageMagick to dump an image histogram
+convert "$1" -format %c histogram:info:-
