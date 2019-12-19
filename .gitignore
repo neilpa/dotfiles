@@ -1,7 +1,20 @@
-/OpenSCAD
-/configstore
-/fontforge
-/gtk-2.0
-/inkscape
-/vim/pack
-/wireshark
+# https://jasonstitt.com/gitignore-whitelisting-patterns
+# Ignore everything
+*
+# But descend into directories
+!*/
+
+# Recursively allow files under subtree
+!/bin/**
+!/dwm/**
+!/git/**
+!/st/**
+!/turds/**
+!/vim/**
+!/x11/**
+!/zsh/**
+
+# And the important top-level files
+!README.md
+!bootstrap.sh
+!.gitignore
