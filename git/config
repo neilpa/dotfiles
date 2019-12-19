@@ -32,7 +32,10 @@
 	ci = commit
 
 	st = status --short --branch
-	conflicts = diff --name-only --diff-filter=U
+
+	# Useful for opening in an editor
+	mod = diff --name-only --relative --diff-filter=M
+	conflicts = diff --name-only --relative --diff-filter=U
 
 	d = diff
 	dc = diff --cached
