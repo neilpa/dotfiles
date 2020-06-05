@@ -10,17 +10,12 @@ ln -vis "${D}/bin" "${HOME}/"
 mkdir -p "${HOME}/.config"
 ln -vis "${D}/git" "${HOME}/.config/"
 ln -vis "${D}/vim" "${HOME}/.config/"
+ln -vis "${D}/z"   "${HOME}/.config/"
 ln -vis "${D}/zsh" "${HOME}/.config/"
 
-# Files directly hardlinked to ~/.*
+# Files directly symlinked to ~/.*
 cd "${D}/turds"
 for f in *
 do
-    # Test for existing hardlinks
-    if [ "$f" -ef "${HOME}/.$f" ]
-    then
-	    echo "$f": already hardlinked
-    else
-        ln -vi "$f" "${HOME}/.$f"
-    fi
+    ln -vis "${D}/$f" "${HOME}/.$f"
 done
