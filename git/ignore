@@ -6,6 +6,7 @@ desktop.ini
 
 # Vim
 .netrwhist
+*.swp
 
 # zsh
 .zcompdump
@@ -14,6 +15,8 @@ desktop.ini
 .DS_Store
 .AppleDouble
 .LSOverride
+.Trash
+.CFUserTextEncoding
 
 # Icon must ends with two \r.
 Icon
@@ -22,8 +25,11 @@ Icon
 ._*
 
 # Files that might appear on external disk
+.DocumentRevisions-V100
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.fseventsd
 
 # XCode junk
 .xctool-args
@@ -44,3 +50,7 @@ xcuserdata
 
 # carthage
 Carthage/Build
+
+# python
+__pycache__
+
