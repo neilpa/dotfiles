@@ -5,7 +5,7 @@
 [push]
 	default = simple
 [pull]
-	rebase = preserve
+	rebase = merges
 [fetch]
 	prune = true
 
