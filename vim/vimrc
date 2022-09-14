@@ -310,7 +310,7 @@ iabbrev seperate separate
 iabbrev seperator separator
 
 "Commands work better than cabbrev where possible
-command! -bang -complete=file E e<bang>
+command! -bang -nargs=? -complete=file E e<bang>
 command! -bang W w<bang>
 command! -bang Q q<bang>
 command! -bang Wq wq<bang>
