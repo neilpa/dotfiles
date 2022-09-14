@@ -55,11 +55,9 @@
 
 	graph = log --graph --abbrev-commit --decorate
 
-	lg1 = !"git lgf1 --tags"
-	lg2 = !"git lgf2 --tags"
-	lg3 = !"git lgf3 --tags"
-	lg = !"git lg1 $(git current-branch)"
-	ahead = !"git lg1 --branches --not --remotes"
+	ll = log --format='%C(auto)%h %s'
+	l1 = log --oneline
+	ahead = log --oneline --branches --not --remotes
 
 	rm-ignored = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 

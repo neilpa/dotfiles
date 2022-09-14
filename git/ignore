@@ -54,3 +54,6 @@ Carthage/Build
 # python
 __pycache__
 
+# VSCode (go delve?)
+__debug_bin
+
