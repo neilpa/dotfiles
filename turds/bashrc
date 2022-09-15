@@ -5,5 +5,3 @@ test -f ~/.shrc && source ~/.shrc
 export EDITOR='vim'
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
-# Mac specifics
-export HOMEBREW_NO_ANALYTICS=1

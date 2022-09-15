@@ -41,6 +41,9 @@ alias gob='go build'
 alias got='go test'
 alias gor='go run'
 
+## homebrew
+export HOMEBREW_NO_ANALYTICS=1
+
 ## rclone (b2)
 # Can't be set in ~/.config/rclone/rclone.conf
 # Also can't use the `RCLONE_CONFIG_B2_*` to specifically target `b2`
