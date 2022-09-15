@@ -5,8 +5,13 @@ set -eu
 
 # TODO: Check for and use XDG_CONFIG_DIR
 # Files directly symlinked to ~/.*
-cd "${HOME}/.config/turds"
-for f in *
+conf=${HOME}/.config
+for d in ${conf}/_home ${conf}/_$(uname -s)
 do
-    ln -vis "${HOME}/.config/turds/$f" "${HOME}/.$f"
+    [ -d "$d" ] || continue
+    for f in ${d}/*
+    do
+        [ -f "$f" ] || continue
+        ln -vis $f "${HOME}/.$(basename $f)"
+    done
 done
