@@ -41,6 +41,26 @@ alias gob='go build'
 alias got='go test'
 alias gor='go run'
 
+## rclone (b2)
+# Can't be set in ~/.config/rclone/rclone.conf
+# Also can't use the `RCLONE_CONFIG_B2_*` to specifically target `b2`
+# https://rclone.org/docs/#environment-variables
+# TODO: Figure out how to included bucket or full path in logging output
+
+# https://rclone.org/filtering/#exclude-directory-based-on-a-file
+export RCLONE_EXCLUDE_IF_PRESENT=".b2-ignore"
+# https://rclone.org/b2/#fast-list
+export RCLONE_FAST_LIST=true
+# https://rclone.org/docs/#log-file-file
+export RCLONE_LOG_FILE="${HOME}/logs/rclone.b2.log"
+# https://rclone.org/docs/#p-progress
+export RCLONE_PROGRESS=true
+# https://rclone.org/b2/#transfers
+export RCLONE_TRANSFERS=20
+# https://rclone.org/docs/#v-vv-verbose
+export RCLONE_VERBOSE=1
+
+
 # dump a man page to the terminal and cleanup formatting
 man-cat() {
 	man -P cat "$@" | col -b
@@ -74,3 +94,4 @@ timestamp() {
 }
 
 . /usr/local/etc/profile.d/z.sh
+
