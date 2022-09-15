@@ -6,6 +6,7 @@ PS1="\w \$ "
 # ensure XDG directories are defined
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 export GOPATH="$HOME/code/go"
 
@@ -96,6 +97,6 @@ timestamp() {
 }
 
 ## z.sh
-export _Z_DATA="${XDG_CACHE_HOME}/z/data"
+export _Z_DATA="${XDG_DATA_HOME}/z"
 [ -f "$BREW_DIR/etc/profile.d/z.sh" ] && . "$BREW_DIR/etc/profile.d/z.sh"
 

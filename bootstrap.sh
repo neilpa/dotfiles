@@ -15,3 +15,4 @@ do
         ln -vis $f "${HOME}/.$(basename $f)"
     done
 done
+
