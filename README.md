@@ -10,7 +10,7 @@ git clone git@github.com:neilpa/dotfiles.git ~/.config
 path/to/dotfiles/bootstrap.sh
 ```
 
-The `bootstrap.sh` script hardlinks files in `turds` to `~`, prefixing with a dot. Everything else _should_ work as-is assuming conformance to default XDG `~/.config` directory.
+The `bootstrap.sh` script symlinks files in `turds` to `~`, prefixing with a dot. Everything else _should_ work as-is assuming conformance to default XDG `~/.config` directory.
 
 ## shells
 

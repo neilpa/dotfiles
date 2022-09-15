@@ -8,5 +8,5 @@ set -eu
 cd "${HOME}/.config/turds"
 for f in *
 do
-    ln -v "${HOME}/.config/turds/$f" "${HOME}/.$f"
+    ln -vis "${HOME}/.config/turds/$f" "${HOME}/.$f"
 done
