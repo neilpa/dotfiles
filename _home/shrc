@@ -19,7 +19,7 @@ esac
 export BREW_DIR
 export HOMEBREW_NO_ANALYTICS=1
 
-export PATH_HEAD="$HOME/bin:$XDG_CONFIG_HOME/bin:$GOPATH/bin"
+export PATH_HEAD="$HOME/bin:$XDG_CONFIG_HOME/bin:$GOPATH/bin:${BREW_DIR}/bin"
 export PATH="$PATH_HEAD:$PATH"
 
 ## less is more
