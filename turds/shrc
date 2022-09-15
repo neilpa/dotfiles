@@ -63,18 +63,6 @@ export RCLONE_TRANSFERS=20
 # https://rclone.org/docs/#v-vv-verbose
 export RCLONE_VERBOSE=1
 
-
-# dump a man page to the terminal and cleanup formatting
-man-cat() {
-	man -P cat "$@" | col -b
-}
-
-# split a large (>4GB) file in parts for saving to a FAT32 drive
-#   split-fat32 /path/to/large.tar.gz /mnt/large.tar.gz.
-split-fat32() {
-    split -d -b 4294967295 "$@"
-}
-
 # Date/Time helpers
 
 # YYYY-MM-DD HH:MM:SS
