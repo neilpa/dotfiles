@@ -5,7 +5,9 @@ PS1="\w \$ "
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export PATH="$HOME/bin:$HOME/go/bin:$XDG_CONFIG_HOME/bin:$PATH"
+export GOPATH="$HOME/code/go"
+
+export PATH="$HOME/bin:$GOPATH/bin:$XDG_CONFIG_HOME/bin:$PATH"
 
 # less is more
 export PAGER=less
