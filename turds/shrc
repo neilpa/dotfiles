@@ -1,3 +1,5 @@
+## environment prelude
+
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
 
@@ -7,13 +9,25 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export GOPATH="$HOME/code/go"
 
-export PATH="$HOME/bin:$GOPATH/bin:$XDG_CONFIG_HOME/bin:$PATH"
+## homebrew
+# Can't depend on `brew --prefix` since `brew` isn't on the path yet
+# https://docs.brew.sh/Manpage#--prefix---unbrewed---installed-formula-
+case $(uname -m) in
+  arm64)  BREW_DIR=/opt/homebrew;;
+  x86_64) BREW_DIR=/usr/local;;
+esac
+export BREW_DIR
+export HOMEBREW_NO_ANALYTICS=1
 
-# less is more
+export PATH_HEAD="$HOME/bin:$XDG_CONFIG_HOME/bin:$GOPATH/bin"
+export PATH="$PATH_HEAD:$PATH"
+
+## less is more
 export PAGER=less
 # don't need a less history file
 export LESSHIST=/dev/null
 
+## vim
 # https://tlvince.com/vim-respect-xdg
 # set vimrc's location and source it on vim startup
 export EDITOR=vim
@@ -40,9 +54,6 @@ alias ....='cd ../../..'
 alias gob='go build'
 alias got='go test'
 alias gor='go run'
-
-## homebrew
-export HOMEBREW_NO_ANALYTICS=1
 
 ## rclone (b2)
 # Can't be set in ~/.config/rclone/rclone.conf
@@ -84,5 +95,7 @@ timestamp() {
     date -u +%F_%T
 }
 
-. /usr/local/etc/profile.d/z.sh
+## z.sh
+export _Z_DATA="${XDG_CACHE_HOME}/z/data"
+[ -f "$BREW_DIR/etc/profile.d/z.sh" ] && . "$BREW_DIR/etc/profile.d/z.sh"
 
