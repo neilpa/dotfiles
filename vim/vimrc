@@ -64,7 +64,6 @@ set nomodeline
 syntax on
 
 "Still searching for the one true color scheme
-set background=dark
 silent! colorscheme Tomorrow-Night-Bright
 
 "Keep cursor from screen top/bottom
