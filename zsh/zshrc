@@ -43,14 +43,3 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
-# rbenv crap
-export PATH_HEAD="${PATH_HEAD}:${HOME}/.rbenv/shims"
-export PATH="${PATH_HEAD}:${PATH}"
-#source "${BREW_DIR}/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh"
-#command rbenv rehash 2>/dev/null
-
-# NVM crap
-export NVM_DIR="$HOME/.nvm"
-[ -s "${BREW_DIR}/opt/nvm/nvm.sh" ] && . "${BREW_DIR}/opt/nvm/nvm.sh"
-#[ -s "${BREW_DIR}opt/nvm/etc/bash_completion" ] && . "${BREW_DIR}/opt/nvm/etc/bash_completion"
-

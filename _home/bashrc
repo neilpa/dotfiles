@@ -2,6 +2,5 @@
 
 test -f ~/.shrc && source ~/.shrc
 
-export EDITOR='vim'
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+HISTFILE=${XDG_DATA_HOME}/bash/history
 
