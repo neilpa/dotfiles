@@ -2,9 +2,14 @@
 " Environment
 "==========================================================================
 
+" Obviously want all possible Vim features
+" TODO: Remove since vimrc implies this?
+" https://superuser.com/questions/693668/why-viminfo-setting-doesnt-work-in-vim
+set nocompatible
+
 " Respect XDG as best as possible
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIM,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set viminfo+=n$XDG_DATA_HOME/vim/viminfo
 set packpath=$XDG_CONFIG_HOME/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$XDG_CONFIG_HOME/vim/after
 
 " fzf support
@@ -41,9 +46,6 @@ set noswapfile
 "==========================================================================
 " VIM User Interface
 "==========================================================================
-
-" Obviously want all possible Vim features
-set nocompatible
 
 "Have Vim rememember lots of commands
 set history=75
