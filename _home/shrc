@@ -75,27 +75,6 @@ export RCLONE_TRANSFERS=20
 # https://rclone.org/docs/#v-vv-verbose
 export RCLONE_VERBOSE=1
 
-# Date/Time helpers
-
-# YYYY-MM-DD HH:MM:SS
-now() {
-    date +'%F %T'
-}
-now-utc() {
-    date -u +'%F %T'
-}
-# YYY-MM-DD
-today() {
-    date +%F
-}
-today-utc() {
-    date -u +%F
-}
-# YYYY-MM-DD_HH:MM:SS
-timestamp() {
-    date -u +%F_%T
-}
-
 ## z.sh
 export _Z_DATA="${XDG_DATA_HOME}/z"
 [ -f "$BREW_DIR/etc/profile.d/z.sh" ] && . "$BREW_DIR/etc/profile.d/z.sh"
