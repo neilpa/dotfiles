@@ -12,11 +12,8 @@ unsetopt BEEP
 # even as a vim user, still used to the standard readline keybindings
 bindkey -e
 
-# respect XDG
-ZCACHE=$XDG_CACHE_HOME/zsh
-
-# large set of history, and continually append
-HISTFILE=$ZCACHE/histfile
+# history
+HISTFILE=${XDG_DATA_HOME}/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt EXTENDED_HISTORY # add timestamps to history
@@ -38,7 +35,7 @@ alias mmv='noglob -W zmv'
 
 # initalize autocomplete
 autoload -Uz compinit
-compinit -d $ZCACHE/zcompdump-$ZSH_VERSION
+compinit -d ${XDG_CACHE_HOME}/zsh/zcompdump-$ZSH_VERSION
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'

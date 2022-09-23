@@ -1,12 +1,10 @@
 ## environment prelude
 
+# Ensure XDG is setup if not already
+source $HOME/.xdgenv
+
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
-
-# ensure XDG directories are defined
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 
 export GOPATH="$HOME/code/go"
 

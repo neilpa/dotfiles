@@ -1,5 +1,0 @@
-# .profile is invoked by some Bourne-compatible shells for login sessions.
-
-# set ENV to a file invoked each time sh is started for interactive use.
-export ENV=$HOME/.shrc
-
