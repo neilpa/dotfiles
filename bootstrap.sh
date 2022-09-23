@@ -5,8 +5,8 @@ set -eu
 
 # TODO: Check for and use XDG_CONFIG_DIR
 # Files directly symlinked to ~/.*
-conf=${HOME}/.config
-for d in ${conf}/_home ${conf}/_$(uname -s)
+cfg=${HOME}/.config
+for d in ${cfg}/_home ${cfg}/_$(uname -s)
 do
     [ -d "$d" ] || continue
     for f in ${d}/*
@@ -15,4 +15,13 @@ do
         ln -vis $f "${HOME}/.$(basename $f)"
     done
 done
+
+# Missing directories break some history, cache, etc. files
+source ${cfg}/_home/xdgenv
+
+mkdir -p ${XDG_DATA_HOME}/vim
+mkdir -p ${XDG_DATA_HOME}/zsh
+
+mkdir -p ${XDG_CACHE_HOME}/vim
+mkdir -p ${XDG_CACHE_HOME}/zsh
 
