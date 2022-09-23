@@ -24,7 +24,7 @@ export PATH="$PATH_HEAD:$PATH"
 ## less is more
 export PAGER=less
 # don't need a less history file
-export LESSHIST=/dev/null
+export LESSHISTFILE=-
 
 ## vim
 # https://tlvince.com/vim-respect-xdg
