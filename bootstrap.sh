@@ -11,7 +11,7 @@ do
     [ -d "$d" ] || continue
     for f in ${d}/*
     do
-        [ -f "$f" ] || continue
+        [ -f "$f" ] || [ -d "$f" ] || continue
         ln -vis $f "${HOME}/.$(basename $f)"
     done
 done
@@ -19,7 +19,7 @@ done
 # Missing directories break some history, cache, etc. files
 source ${cfg}/_home/xdgenv
 for prog in bash node python vim zsh; do
-    mkdir -p ${XDG_DATA_HOME}/${prog}
-    mkdir -p ${XDG_CACHE_HOME}/${prog}
+    mkdir -pv ${XDG_DATA_HOME}/${prog}
+    mkdir -pv ${XDG_CACHE_HOME}/${prog}
 done
 
