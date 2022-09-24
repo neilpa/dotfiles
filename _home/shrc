@@ -82,11 +82,15 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 [ -s "${BREW_DIR}/opt/nvm/nvm.sh" ] && . "${BREW_DIR}/opt/nvm/nvm.sh"
 #[ -s "${BREW_DIR}opt/nvm/etc/bash_completion" ] && . "${BREW_DIR}/opt/nvm/etc/bash_completion"
 
-# Ruby/rbenv crap
+## Ruby/rbenv crap
 #export PATH_HEAD="${PATH_HEAD}:${HOME}/.rbenv/shims"
 #export PATH="${PATH_HEAD}:${PATH}"
 #source "${BREW_DIR}/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh"
 #command rbenv rehash 2>/dev/null
+
+## Rust
+# https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+export CARGO_HOME=${XDG_DATA_HOME}/cargo
 
 ## https://github.com/rupa/z
 export _Z_DATA="${XDG_DATA_HOME}/z"
