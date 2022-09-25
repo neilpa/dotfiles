@@ -73,10 +73,17 @@ export RCLONE_TRANSFERS=20
 # https://rclone.org/docs/#v-vv-verbose
 export RCLONE_VERBOSE=1
 
+
 ## Node/npm/nvm crap
+#
 # https://nodejs.org/api/repl.html#repl_environment_variable_options
 export NODE_REPL_HISTORY=${XDG_DATA_HOME}/node/history
 export NODE_REPL_HISTORY_SIZE=10000
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+# Since npm v7 https://github.com/npm/cli/pull/1632
+export NPM_CONFIG_UPDATE_NOTIFIER=false
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 [ -s "${BREW_DIR}/opt/nvm/nvm.sh" ] && . "${BREW_DIR}/opt/nvm/nvm.sh"

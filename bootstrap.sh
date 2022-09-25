@@ -18,7 +18,7 @@ done
 
 # Missing directories break some history, cache, etc. files
 source ${cfg}/_home/xdgenv
-for prog in bash node python vim zsh; do
+for prog in bash node npm python vim zsh; do
     mkdir -pv ${XDG_DATA_HOME}/${prog}
     mkdir -pv ${XDG_CACHE_HOME}/${prog}
 done
