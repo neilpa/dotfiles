@@ -6,8 +6,6 @@ source $HOME/.xdgenv
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
 
-export GOPATH="$HOME/code/go"
-
 ## homebrew
 # Can't depend on `brew --prefix` since `brew` isn't on the path yet
 # https://docs.brew.sh/Manpage#--prefix---unbrewed---installed-formula-
@@ -18,13 +16,27 @@ esac
 export BREW_DIR
 export HOMEBREW_NO_ANALYTICS=1
 
-export PATH_HEAD="$HOME/bin:$XDG_CONFIG_HOME/bin:$GOPATH/bin:${BREW_DIR}/bin"
-export PATH="$PATH_HEAD:$PATH"
+## ls
+# TODO should check for color terminal
+export CLICOLOR=true
+export LSCOLORS=exfxcxdxbxegedabagacad
+
+alias l='ls -l'
+alias la='ls -laFo'
+alias ll='ls -lFh'
+
+
+## cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 
 ## less is more
 export PAGER=less
 # don't need a less history file
 export LESSHISTFILE=/dev/null
+
 
 ## vim
 # https://tlvince.com/vim-respect-xdg
@@ -32,27 +44,14 @@ export LESSHISTFILE=/dev/null
 export EDITOR=vim
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
-# colorful outputs
-# TODO should check for color terminal
-export CLICOLOR=true
-export LSCOLORS=exfxcxdxbxegedabagacad
 
-# some useful (default) aliases
-alias h='fc -l'
-alias j=jobs
-alias l='ls -l'
-alias g='egrep -i'
- 
-alias la='ls -laFo'
-alias ll='ls -lFh'
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+## Golang
+export GOPATH="$HOME/code/go"
 
 alias gob='go build'
 alias got='go test'
 alias gor='go run'
+
 
 ## rclone (b2)
 # Can't be set in ~/.config/rclone/rclone.conf
@@ -89,17 +88,23 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 [ -s "${BREW_DIR}/opt/nvm/nvm.sh" ] && . "${BREW_DIR}/opt/nvm/nvm.sh"
 #[ -s "${BREW_DIR}opt/nvm/etc/bash_completion" ] && . "${BREW_DIR}/opt/nvm/etc/bash_completion"
 
+
 ## Ruby/rbenv crap
 #export PATH_HEAD="${PATH_HEAD}:${HOME}/.rbenv/shims"
 #export PATH="${PATH_HEAD}:${PATH}"
 #source "${BREW_DIR}/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh"
 #command rbenv rehash 2>/dev/null
 
+
 ## Rust
 # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
 export CARGO_HOME=${XDG_DATA_HOME}/cargo
+
 
 ## https://github.com/rupa/z
 export _Z_DATA="${XDG_DATA_HOME}/z"
 [ -f "$BREW_DIR/etc/profile.d/z.sh" ] && . "$BREW_DIR/etc/profile.d/z.sh"
 
+
+## Finally export path as desired
+export PATH="$HOME/bin:$XDG_CONFIG_HOME/bin:$GOPATH/bin:${BREW_DIR}/bin:$PATH"
