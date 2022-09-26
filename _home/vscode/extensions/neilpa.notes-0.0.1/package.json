@@ -1,0 +1,24 @@
+{
+	"name": "vscode-ext-notes",
+	"description": "Extension for managing my notes",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"activationEvents": [
+		"onCommand:notes.openToday"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "notes.openToday",
+				"title": "Notes: Open Today"
+			}
+		]
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/vscode": "^1.32.0"
+	}
+}

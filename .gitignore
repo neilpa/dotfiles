@@ -1,1 +1,8 @@
-_home/vscode/extensions
+# VS Code extenions except mine
+# https://stackoverflow.com/a/5534865/1999152
+_home/vscode/extensions/*
+!_home/vscode/extensions/neilpa.*/
+
+# Dumb node update notifier
+configstore/
+
