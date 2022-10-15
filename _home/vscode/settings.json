@@ -1,0 +1,20 @@
+{
+    "telemetry.enableTelemetry": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.preferences.importModuleSpecifierEnding": "js",
+    "typescript.preferences.importModuleSpecifierEnding": "js",
+    "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": false,
+    "gopls": {
+      "analyses": { "composites": false }
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "go.coverOnSingleTest": true,
+    "files.associations": {
+      "*.go.golden": "go"
+    }
+}
