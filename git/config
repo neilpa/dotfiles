@@ -37,6 +37,9 @@
 	mod = diff --name-only --relative --diff-filter=M
 	conflicts = diff --name-only --relative --diff-filter=U
 
+    # https://stackoverflow.com/a/70205254/1999152
+    rbc = "-c core.editor=true rebase --continue"
+
 	d = diff
 	dc = diff --cached
 	dh = diff HEAD
