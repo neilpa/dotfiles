@@ -23,3 +23,12 @@ for prog in bash node npm python vim zsh; do
     mkdir -pv ${XDG_CACHE_HOME}/${prog}
 done
 
+# Special overrides for vscode settings
+# https://stackoverflow.com/a/53841945/1999152
+case $(uname -s) in
+  Darwin)
+    vscode_user="${HOME}/Library/Application Support/Code/User"
+    ln -vis ${cfg}/_home/vscode/settings.json "${vscode_user}/settings.json"
+    ln -vis ${cfg}/_home/vscode/keybindings.json "${vscode_user}/keybindings.json"
+    ;;
+esac
