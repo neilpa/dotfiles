@@ -2,6 +2,8 @@
 
 # Ensure XDG is setup if not already
 source $HOME/.xdgenv
+# Local stuff like keys that don't get checked in
+[ -f "$HOME/.local/env.sh" ] && . "$HOME/.local/env.sh"
 
 # set prompt: ``pwd $ ''
 PS1="\w \$ "
