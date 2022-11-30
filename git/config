@@ -2,6 +2,9 @@
 	email = git@neilpa.me
 	name = Neil Pankey
 
+[init]
+	defaultBranch = main
+
 [push]
 	default = simple
 [pull]
