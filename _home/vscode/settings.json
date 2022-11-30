@@ -6,7 +6,6 @@
     "editor.tabSize": 2,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "javascript.preferences.importModuleSpecifierEnding": "js",
-    "typescript.preferences.importModuleSpecifierEnding": "js",
     "editor.minimap.enabled": false,
     "editor.bracketPairColorization.enabled": false,
     "gopls": {
@@ -16,5 +15,9 @@
     "go.coverOnSingleTest": true,
     "files.associations": {
       "*.go.golden": "go"
-    }
+    },
+    "editor.rulers": [ 80, 120 ],
+    "[git-commit]": {
+      "editor.rulers": [ 50, 72 ]
+    },
 }
