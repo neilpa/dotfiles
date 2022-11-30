@@ -57,3 +57,6 @@ __pycache__
 # VSCode (go delve?)
 __debug_bin
 
+# golang
+*.pprof
+
