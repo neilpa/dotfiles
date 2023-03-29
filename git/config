@@ -1,6 +1,6 @@
 [user]
-	email = git@neilpa.me
 	name = Neil Pankey
+	useConfigOnly = true
 
 [init]
 	defaultBranch = main
@@ -14,7 +14,6 @@
 
 [diff]
 	indentHeuristic = true
-	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
