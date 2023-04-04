@@ -6,3 +6,5 @@ _home/vscode/extensions/*
 # Dumb node update notifier
 configstore/
 
+# iterm2 creates a symlink here
+iterm2
