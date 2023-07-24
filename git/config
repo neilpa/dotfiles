@@ -41,6 +41,7 @@
 
     # https://stackoverflow.com/a/70205254/1999152
     rbc = "-c core.editor=true rebase --continue"
+    cpc = "-c core.editor=true cherry-pick --continue"
 
 	d = diff
 	dc = diff --cached
