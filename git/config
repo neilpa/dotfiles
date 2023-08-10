@@ -12,6 +12,11 @@
 [fetch]
 	prune = true
 
+[rebase]
+    updateRefs = true
+[rerere]
+	enabled = 1
+
 [diff]
 	indentHeuristic = true
 [difftool "Kaleidoscope"]
@@ -25,9 +30,6 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
-
-[rerere]
-	enabled = 1
 
 [alias]
 	co = checkout
