@@ -37,6 +37,9 @@
 
 	st = status --short --branch
 
+    # https://stackoverflow.com/questions/30542491/push-force-with-lease-by-default
+    pushfl = push --force-with-lease
+
 	# Useful for opening in an editor
 	mod = diff --name-only --relative --diff-filter=M
 	conflicts = diff --name-only --relative --diff-filter=U
